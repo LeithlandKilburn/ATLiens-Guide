@@ -54,39 +54,40 @@
 
 ## Database Set Up
 
-- User
+- users
 
-  - user_id int primary key auto_increment,
+  - userId int primary key auto_increment,
   - username varchar(50) not null unique,
   - password_hash varchar(2048) not null,
-  - role_id int foreign key
+  - role1_id int foreign key
+  - role2_id int foreign key
+  - role3_id int foreign key
 
-- Roles
+- roles
 
   - role_id int primary key auto_increment,
   - `name` varchar(25) not null unique
 
-- Word
+- words
 
-  - word_id int primary key auto_increment,
+  - wordId int primary key auto_increment,
   - `name` varchar(1000) not null (doesn’t have to be unique)
   - definition varchar(2048) not null
   - example varchar (2048) not null
   - video_url varchar(2048) (optional)
   - use_rating int(5) not null (limit number 1 to 5)
+  - categoryId
+  - categoryId
+  - categoryId
 
-- Category
+- categories
 
-  - category_id int primary key auto_increment,
+  - categoryId int primary key auto_increment,
   - `name` varchar(50) not null unique
   - isExplicit boolean not null
 
-- Word-Categories (bridge table) - one word can have multi categories
-
-  - word_id
-  - category_id
-
 - Favorited words - User-Word (bridge table)
+
   - user_id
   - word_id
 
