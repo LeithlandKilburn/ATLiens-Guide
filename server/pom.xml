@@ -133,6 +133,13 @@
             <version>1.12.385</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.amazonaws</groupId>-->
+<!--            <artifactId>aws-java-sdk-core</artifactId>-->
+<!--            <version>1.12.385</version>-->
+<!--        </dependency>-->
+
+
         <dependency>
             <groupId>com.github.derjust</groupId>
             <artifactId>spring-data-dynamodb</artifactId>
@@ -150,6 +157,10 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 
 <!--    <build>-->

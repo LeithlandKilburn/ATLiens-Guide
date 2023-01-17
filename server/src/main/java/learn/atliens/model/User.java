@@ -34,43 +34,45 @@ public class User {
         return userId;
     }
 
-    public String getUsername() {
-        return username;
-    }
+    public void setUserId(String id) {this.userId = id;}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRoleId1() {
-        return roleId1;
-    }
-
-    public void setRoleId1(String roleId1) {
-        this.roleId1 = roleId1;
-    }
-
-    public String getRoleId2() {
-        return roleId2;
-    }
-
-    public void setRoleId2(String roleId2) {
-        this.roleId2 = roleId2;
-    }
-
-    public String getRoleId3() {
-        return roleId3;
-    }
-
-    public void setRoleId3(String roleId3) {
-        this.roleId3 = roleId3;
-    }
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getRoleId1() {
+//        return roleId1;
+//    }
+//
+//    public void setRoleId1(String roleId1) {
+//        this.roleId1 = roleId1;
+//    }
+//
+//    public String getRoleId2() {
+//        return roleId2;
+//    }
+//
+//    public void setRoleId2(String roleId2) {
+//        this.roleId2 = roleId2;
+//    }
+//
+//    public String getRoleId3() {
+//        return roleId3;
+//    }
+//
+//    public void setRoleId3(String roleId3) {
+//        this.roleId3 = roleId3;
+//    }
 }
