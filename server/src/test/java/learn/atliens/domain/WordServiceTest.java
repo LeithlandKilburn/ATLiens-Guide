@@ -1,7 +1,0 @@
-package learn.atliens.domain;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-class WordServiceTest {
-
-}

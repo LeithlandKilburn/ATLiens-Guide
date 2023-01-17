@@ -65,7 +65,7 @@
 
 - roles
 
-  - role_id int primary key auto_increment,
+  - roleId int primary key auto_increment,
   - `name` varchar(25) not null unique
 
 - words
@@ -74,11 +74,11 @@
   - `name` varchar(1000) not null (doesn’t have to be unique)
   - definition varchar(2048) not null
   - example varchar (2048) not null
-  - video_url varchar(2048) (optional)
-  - use_rating int(5) not null (limit number 1 to 5)
-  - categoryId
-  - categoryId
-  - categoryId
+  - videoUrl varchar(2048) (optional)
+  - useRating int(5) not null (limit number 1 to 5)
+  - category1Id
+  - category2Id
+  - category3Id
 
 - categories
 
@@ -86,10 +86,11 @@
   - `name` varchar(50) not null unique
   - isExplicit boolean not null
 
-- Favorited words - User-Word (bridge table)
+- favoriteWords - User-Word (bridge table)
 
-  - user_id
-  - word_id
+  - favoriteWordId
+  - userId
+  - wordId
 
 ## Notes
 

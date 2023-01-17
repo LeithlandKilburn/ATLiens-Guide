@@ -22,6 +22,8 @@ public class DynamoDbConfig {
     private String awsSecretKey;
 
 
+    // DynamoDBMapper is a class provided by the AWS SDK for Java
+    // that allows you to map your domain classes to Amazon DynamoDB tables and perform CRUD operations on the data
     @Bean
     public DynamoDBMapper dynamoDBMapper(){
         return new DynamoDBMapper(amazonDynamoDb());
