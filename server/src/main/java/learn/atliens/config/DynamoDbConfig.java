@@ -25,11 +25,11 @@ public class DynamoDbConfig {
     // DynamoDBMapper is a class provided by the AWS SDK for Java
     // that allows you to map your domain classes to Amazon DynamoDB tables and perform CRUD operations on the data
     @Bean
-    public DynamoDBMapper dynamoDBMapper(){
+    public DynamoDBMapper getDynamoDBMapper(){
         return new DynamoDBMapper(amazonDynamoDb());
     }
 
-    private AmazonDynamoDB amazonDynamoDb() {
+    public AmazonDynamoDB amazonDynamoDb() {
         return AmazonDynamoDBClientBuilder.standard()
                 .withEndpointConfiguration(
                         new AwsClientBuilder.EndpointConfiguration(dynamoDbEndpoint, "us-east-1"))
@@ -39,4 +39,5 @@ public class DynamoDbConfig {
     private AWSCredentialsProvider amazonDynamoDBCredentials() {
         return new AWSStaticCredentialsProvider(new BasicAWSCredentials(awsAccessKey, awsSecretKey));
     }
+
 }

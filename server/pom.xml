@@ -21,6 +21,7 @@
         <relativePath/>
     </parent>
 
+<<<<<<< HEAD
 <!--    <repositories>-->
 <!--        <repository>-->
 <!--            <id>dynamodb-local</id>-->
@@ -28,6 +29,39 @@
 <!--            <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>-->
 <!--        </repository>-->
 <!--    </repositories>-->
+=======
+   <repositories>
+       <repository>
+           <id>dynamodb-local</id>
+           <name>DynamoDB Local Release Repository</name>
+           <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>
+       </repository>
+   </repositories>
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-dependency-plugin</artifactId>-->
+<!--                <version>2.10</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>copy</id>-->
+<!--                        <phase>test-compile</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>copy-dependencies</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <includeScope>test</includeScope>-->
+<!--                            <includeTypes>so,dll,dylib</includeTypes>-->
+<!--                            <outputDirectory>${project.basedir}/native-libs</outputDirectory>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+>>>>>>> cf1a8f579dc6fc8dbb77618f1e04dc03ff49ae81
 
     <dependencies>
         <dependency>
@@ -62,7 +96,9 @@
 <!--            <artifactId>mysql-connector-java</artifactId>-->
 <!--        </dependency>-->
 
+
         <!-- Security  -->
+<<<<<<< HEAD
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-security</artifactId>-->
@@ -84,6 +120,30 @@
 <!--            <version>0.11.5</version>-->
 <!--            <scope>runtime</scope>-->
 <!--        </dependency>-->
+=======
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency> -->
+
+>>>>>>> cf1a8f579dc6fc8dbb77618f1e04dc03ff49ae81
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -103,17 +163,26 @@
             <version>1.12.385</version>
         </dependency>
 
+<<<<<<< HEAD
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-core</artifactId>
             <version>1.12.385</version>
         </dependency>
+=======
+<!--        <dependency>-->
+<!--            <groupId>com.amazonaws</groupId>-->
+<!--            <artifactId>aws-java-sdk-core</artifactId>-->
+<!--            <version>1.12.385</version>-->
+<!--        </dependency>-->
+>>>>>>> cf1a8f579dc6fc8dbb77618f1e04dc03ff49ae81
 
         <dependency>
             <groupId>com.github.derjust</groupId>
             <artifactId>spring-data-dynamodb</artifactId>
             <version>5.1.0</version>
         </dependency>
+<<<<<<< HEAD
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -132,6 +201,12 @@
         </dependency>
 
 
+=======
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+>>>>>>> cf1a8f579dc6fc8dbb77618f1e04dc03ff49ae81
     </dependencies>
 
 <!--    <build>-->
