@@ -21,6 +21,7 @@ public class UserRepo {
     private DynamoDBMapper dynamoDBMapper;
 
     public User save(User user){
+        System.out.println("Hits save method");
         dynamoDBMapper.save(user);
         return user;
     }
