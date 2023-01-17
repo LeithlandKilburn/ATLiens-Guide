@@ -21,15 +21,6 @@
         <relativePath/>
     </parent>
 
-<<<<<<< HEAD
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>dynamodb-local</id>-->
-<!--            <name>DynamoDB Local Release Repository</name>-->
-<!--            <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
-=======
    <repositories>
        <repository>
            <id>dynamodb-local</id>
@@ -61,7 +52,6 @@
 <!--            </plugin>-->
 <!--        </plugins>-->
 <!--    </build>-->
->>>>>>> cf1a8f579dc6fc8dbb77618f1e04dc03ff49ae81
 
     <dependencies>
         <dependency>
@@ -73,32 +63,9 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
-<!--        <dependency>-->
-<!--            <groupId>org.mockito</groupId>-->
-<!--            <artifactId>mockito-all</artifactId>-->
-<!--            <version>1.9.5</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>5.0.0</version>
-            <scope>test</scope>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-jdbc</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>mysql</groupId>-->
-<!--            <artifactId>mysql-connector-java</artifactId>-->
-<!--        </dependency>-->
 
 
         <!-- Security  -->
-<<<<<<< HEAD
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-security</artifactId>-->
@@ -120,7 +87,6 @@
 <!--            <version>0.11.5</version>-->
 <!--            <scope>runtime</scope>-->
 <!--        </dependency>-->
-=======
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -143,7 +109,6 @@
             <scope>runtime</scope>
         </dependency> -->
 
->>>>>>> cf1a8f579dc6fc8dbb77618f1e04dc03ff49ae81
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -163,26 +128,22 @@
             <version>1.12.385</version>
         </dependency>
 
-<<<<<<< HEAD
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-core</artifactId>
             <version>1.12.385</version>
         </dependency>
-=======
 <!--        <dependency>-->
 <!--            <groupId>com.amazonaws</groupId>-->
 <!--            <artifactId>aws-java-sdk-core</artifactId>-->
 <!--            <version>1.12.385</version>-->
 <!--        </dependency>-->
->>>>>>> cf1a8f579dc6fc8dbb77618f1e04dc03ff49ae81
 
         <dependency>
             <groupId>com.github.derjust</groupId>
             <artifactId>spring-data-dynamodb</artifactId>
             <version>5.1.0</version>
         </dependency>
-<<<<<<< HEAD
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -194,19 +155,12 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
 
 
-=======
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
->>>>>>> cf1a8f579dc6fc8dbb77618f1e04dc03ff49ae81
     </dependencies>
 
 <!--    <build>-->
