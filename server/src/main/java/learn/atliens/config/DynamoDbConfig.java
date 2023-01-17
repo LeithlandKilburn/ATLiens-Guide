@@ -22,12 +22,15 @@ public class DynamoDbConfig {
     private String awsSecretKey;
 
 
+
+
+
     @Bean
-    public DynamoDBMapper dynamoDBMapper(){
+    public DynamoDBMapper getDynamoDBMapper(){
         return new DynamoDBMapper(amazonDynamoDb());
     }
 
-    private AmazonDynamoDB amazonDynamoDb() {
+    public AmazonDynamoDB amazonDynamoDb() {
         return AmazonDynamoDBClientBuilder.standard()
                 .withEndpointConfiguration(
                         new AwsClientBuilder.EndpointConfiguration(dynamoDbEndpoint, "us-east-1"))
@@ -37,4 +40,5 @@ public class DynamoDbConfig {
     private AWSCredentialsProvider amazonDynamoDBCredentials() {
         return new AWSStaticCredentialsProvider(new BasicAWSCredentials(awsAccessKey, awsSecretKey));
     }
+
 }
