@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Search } from 'react-feather';
-import './SearchBar.css';
+import '../css/SearchBar.css';
 
 const SearchBar = () => {
   return (
