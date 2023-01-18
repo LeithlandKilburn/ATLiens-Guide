@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
+import SearchBar from './SearchBar';
 
-function Home () {
-    return (
-        <h1>Home</h1>
-    )
+function Home() {
+  return <SearchBar />;
 }
 
 export default Home;
