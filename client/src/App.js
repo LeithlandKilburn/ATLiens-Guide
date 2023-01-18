@@ -1,19 +1,25 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, Router } from 'react-router-dom';
-import Home from './components/Home.js';
-import Navbar from './components/Nav.js';
+import HomePage from './components/Home.js';
 import './index.css';
 import Login from './components/Login.js';
+import { Sidebar } from 'react-pro-sidebar';
+import Navbar from './components/Navbar.js';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <div className="navbar-container">
+        <Sidebar>
+          <Navbar />
+        </Sidebar>
+        <div className="routes-container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }

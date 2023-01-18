@@ -31,7 +31,7 @@ public class  WordFileRepo implements WordRepo {
     }
 
     @Override
-    public Word findWordById(int wordId) {
+    public Word findWordByName(String name) {
         return null;
     }
 
