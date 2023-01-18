@@ -1,10 +1,13 @@
-import {useState, useEffect} from "react"; 
+import {useState} from "react"; 
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate("/");
 
     const handleChange = (e) => {
         if (e.target.name == "username")
@@ -18,6 +21,24 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(username, password);
+        fetch("http://localhost:8080/atliens", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({username, password})
+        })
+        .then(resp => {
+            if (resp.status === 201)
+            {
+                console.log("success");
+                
+                //navigate("/");
+
+            } else {
+                console.log("Failure");
+            }
+        });
     }
 
     return (
