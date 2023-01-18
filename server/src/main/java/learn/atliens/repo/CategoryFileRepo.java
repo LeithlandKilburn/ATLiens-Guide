@@ -2,9 +2,11 @@ package learn.atliens.repo;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import learn.atliens.model.Category;
 import learn.atliens.model.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryFileRepo implements CategoryRepo{
@@ -13,12 +15,13 @@ public class CategoryFileRepo implements CategoryRepo{
     private DynamoDBMapper dynamoDBMapper;
 
     @Override
-    public List<Word> findAllWords() {
-        return dynamoDBMapper.scan(Word.class, new DynamoDBScanExpression());
+    public List<Category> findAllCategories() {
+        return new ArrayList<>();
     }
 
     @Override
-    public Word findWordById(int wordId) {
-        return null;
+    public Category findByName(String name)
+    {
+        return new Category();
     }
 }
