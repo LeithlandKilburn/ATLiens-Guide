@@ -1,14 +1,14 @@
-import {useState, useEffect} from "react"; 
+import { useState, useEffect } from 'react';
 import { Routes, Route, Link, Router } from 'react-router-dom';
 import Home from './components/Home.js';
-
+import Navbar from './components/Nav.js';
 
 function App() {
   return (
     <div className="App">
-    <h1>333</h1>
+      <Navbar />
       <Routes>
-          <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
