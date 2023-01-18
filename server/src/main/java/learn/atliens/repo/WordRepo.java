@@ -14,8 +14,8 @@ public interface WordRepo {
     // findAllWords
     List<Word> findAllWords();
 
-    // findWordById
-    Word findWordById(int wordId);
+    // findWordByName
+    Word findWordByName(String name);
 
     // findWordsByCategory
 //    List<Word> findWordsByCategory(String category);

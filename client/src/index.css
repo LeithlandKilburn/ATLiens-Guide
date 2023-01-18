@@ -1,1 +1,12 @@
+.navbar-container {
+  display: flex;
+  height: 100vh;
+}
 
+.title-menu-item {
+  text-align: center;
+}
+
+.routes-container {
+  width: 100%;
+}
