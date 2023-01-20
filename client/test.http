@@ -10,7 +10,7 @@ Post http://localhost:8080/atliens/user/create_account
 Content-Type: application/json
 
 {
-    "username": "cody4",
+    "username": "cody5",
     "password": "banks"
 }
 
@@ -20,6 +20,6 @@ Post http://localhost:8080/atliens/authenticate
 Content-Type: application/json
 
 {
-    "username": "cody3",
+    "username": "cody5",
     "password": "banks"
 }
