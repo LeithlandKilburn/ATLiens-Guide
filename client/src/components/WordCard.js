@@ -25,12 +25,12 @@ const WordCard = ({ wordData }) => {
             <X onClick={handleDelete} />
           </div>
           <div className="card-body">
-            {/* <Card.Title>{wordData.name}</Card.Title>
-          <Card.Text>{wordData.definition}</Card.Text>
-          <Card.Text>{wordData.useRating}</Card.Text> */}
-            <Card.Title>TEST NAME</Card.Title>
+            <Card.Title>{wordData.name}</Card.Title>
+            <Card.Text>{wordData.definition}</Card.Text>
+            <Card.Text>{wordData.useRating}</Card.Text>
+            {/* <Card.Title>TEST NAME</Card.Title>
             <Card.Text>TEST DEFINITION</Card.Text>
-            <Card.Text>TEST USERATING</Card.Text>
+            <Card.Text>TEST USERATING</Card.Text> */}
             <Button variant="primary">View More</Button>
           </div>
         </Card.Body>

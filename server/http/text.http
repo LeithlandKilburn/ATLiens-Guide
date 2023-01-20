@@ -25,3 +25,29 @@ Content-Type: application/json
 ###
 
 DELETE {{url}}/6 HTTP/1.1
+
+get http://localhost:8080/atliens/user
+
+###
+
+get http://localhost:8080/atliens/user/cody2
+
+###
+
+Post http://localhost:8080/atliens/user/create_account
+Content-Type: application/json
+
+{
+    "username": "cody5",
+    "password": "banks"
+}
+
+###
+
+Post http://localhost:8080/atliens/authenticate
+Content-Type: application/json
+
+{
+    "username": "cody5",
+    "password": "banks"
+}

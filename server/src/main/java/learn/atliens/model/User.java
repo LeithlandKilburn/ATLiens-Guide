@@ -4,13 +4,10 @@ package learn.atliens.model;
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import learn.atliens.repo.AuthConverter;
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 @DynamoDBTable(tableName = "users")

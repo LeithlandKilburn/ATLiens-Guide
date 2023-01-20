@@ -1,7 +1,6 @@
 package learn.atliens.repo;
 
 import learn.atliens.model.Category;
-import learn.atliens.model.Word;
 
 import java.util.List;
 

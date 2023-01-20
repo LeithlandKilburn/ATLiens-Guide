@@ -10,29 +10,29 @@ public class Result<T> {
     private ResultType type = ResultType.SUCCESS;
     private T payload;
 
-    public ResultType getType() {
-        return type;
-    }
-
-    public boolean isSuccess() {
-        return type == ResultType.SUCCESS;
+    public ActionStatus getStatus() {
+        return status;
     }
 
     public T getPayload() {
         return payload;
     }
 
-    public void setPayload(T payload) {
-        this.payload = payload;
-    }
-
     public List<String> getMessages() {
         return new ArrayList<>(messages);
     }
 
-    public void addMessage(String message, ResultType type) {
+    public void setPayload(T payload) {
+        this.payload = payload;
+    }
+
+    public void addMessage(ActionStatus status, String message) {
+        this.status = status;
         messages.add(message);
-        this.type = type;
+    }
+
+    public boolean isSuccess() {
+        return messages.size() == 0;
     }
 
 }
