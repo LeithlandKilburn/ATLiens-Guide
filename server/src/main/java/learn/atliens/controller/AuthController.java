@@ -1,7 +1,5 @@
 package learn.atliens.controller;
 
-import learn.atliens.domain.Result;
-import learn.atliens.domain.UserResult;
 import learn.atliens.domain.UserService;
 import learn.atliens.model.User;
 import learn.atliens.security.JwtConverter;

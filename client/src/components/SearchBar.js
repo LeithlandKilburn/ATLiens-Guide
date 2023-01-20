@@ -21,7 +21,7 @@ const SearchBar = ({ wordData, setWordData }) => {
 
   const handleSearch = () => {
     try {
-      fetch('http://localhost:8080/words/' + searchValue)
+      fetch('http://localhost:8080/atliens/word/' + searchValue)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);

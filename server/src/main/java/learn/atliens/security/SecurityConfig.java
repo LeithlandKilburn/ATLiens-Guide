@@ -37,6 +37,10 @@ public class SecurityConfig {
                         "/atliens/authenticate").permitAll()
                 .antMatchers(HttpMethod.POST,
                         "/atliens/user/create_account").permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/atliens/word").permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/atliens/word/*").permitAll()
                 .antMatchers(HttpMethod.POST,
                         "/atliens/word").hasAnyAuthority( "ADMIN")
                 // if we get to this point, let's deny all requests

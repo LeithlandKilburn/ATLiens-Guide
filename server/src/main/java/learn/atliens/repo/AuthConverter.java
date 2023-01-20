@@ -1,7 +1,6 @@
 package learn.atliens.repo;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverter;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Arrays;

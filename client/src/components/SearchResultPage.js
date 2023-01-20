@@ -6,9 +6,13 @@ const SearchResultPage = ({ wordData, setWordData }) => {
   console.log(wordData);
   return (
     <div className="card-container">
-      {/* {wordData.map((word) => {
+      {wordData.map((word) => {
         return <WordCard wordData={word} />;
-      })} */}
+      })}
+
+      {/* <WordCard wordData={wordData} />
+      <WordCard wordData={wordData} />
+      <WordCard wordData={wordData} />
 
       <WordCard wordData={wordData} />
       <WordCard wordData={wordData} />
@@ -16,11 +20,7 @@ const SearchResultPage = ({ wordData, setWordData }) => {
 
       <WordCard wordData={wordData} />
       <WordCard wordData={wordData} />
-      <WordCard wordData={wordData} />
-
-      <WordCard wordData={wordData} />
-      <WordCard wordData={wordData} />
-      <WordCard wordData={wordData} />
+      <WordCard wordData={wordData} /> */}
     </div>
   );
 };
