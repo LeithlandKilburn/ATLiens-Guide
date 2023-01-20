@@ -45,13 +45,13 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-//    @PostMapping
-//    public ResponseEntity<?> addUser(@RequestBody User user) {
-//        UserResult result = service.add(user);
-//        if (result.isSuccess()) {
-//            return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED); // 201
-//        } else {
-//            return new ResponseEntity<>(result.getErrors(), HttpStatus.BAD_REQUEST); // 400
-//        }
-//    }
+    @PostMapping("/create_account")
+    public ResponseEntity<?> addUser(@RequestBody User user) {
+        UserResult result = service.add(user);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED); // 201
+        } else {
+            return new ResponseEntity<>(result.getErrors(), HttpStatus.BAD_REQUEST); // 400
+        }
+    }
 }
