@@ -9,25 +9,24 @@ public class UserResult {
 
     private User user;
 
-    private List<String> errors = new ArrayList<>();
+    private List<String> messages = new ArrayList<>();
 
-    public UserResult(User resultUser) {
-        user = resultUser;
+    public void addMessage(String format, Object... args) {
+        messages.add(String.format(format, args));
     }
 
-    public void setErrors(List<String> errors) {
-        this.errors = errors;
-    }
-
-    public User getUser() {
+    public User getPayload() {
         return user;
+    }
+    public void setPayload(User newUser) {
+        user = newUser;
     }
 
     public List<String> getErrors() {
-        return errors;
+        return messages;
     }
 
     public boolean isSuccess() {
-        return !(errors.size() > 0);
+        return !(messages.size() > 0);
     }
 }
