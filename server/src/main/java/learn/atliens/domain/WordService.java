@@ -20,11 +20,11 @@ public class WordService {
         System.out.println("Hits add word service method");
         Word inserted = wordFileRepo.addWord(word);
 
-        if (inserted == null) {
-            result.addMessage(ActionStatus.INVALID, "insert failed");
-        } else {
-            result.setPayload(inserted);
-        }
+//        if (inserted == null) {
+//            result.addMessage(ActionStatus.INVALID, "insert failed");
+//        } else {
+//            result.setPayload(inserted);
+//        }
 
         return result;
     }
@@ -36,4 +36,5 @@ public class WordService {
     public Word findWordByName(String name) {
         return wordFileRepo.findWordByName(name);
     }
+
 }

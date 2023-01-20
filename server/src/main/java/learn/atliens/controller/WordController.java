@@ -23,10 +23,10 @@ public class WordController {
     private WordService wordService;
 
     @PostMapping
-    public ResponseEntity<Word> addWord(@RequestBody Word word) {
-        Result<Word> result = wordService.addWord(word);
-        return new ResponseEntity<>(result.getPayload(), getStatus(result, HttpStatus.CREATED));
-    }
+//    public ResponseEntity<Word> addWord(@RequestBody Word word) {
+//        Result<Word> result = wordService.addWord(word);
+//        return new ResponseEntity<>(result.getPayload(), getStatus(result, HttpStatus.CREATED));
+//    }
 
     @GetMapping
     public List<Word> findAllWords() {
@@ -42,15 +42,15 @@ public class WordController {
         return ResponseEntity.ok(expectedWord);
     }
 
-    private HttpStatus getStatus(Result<Word> result, HttpStatus statusDefault) {
-        switch (result.getStatus()) {
-            case INVALID:
-                return HttpStatus.PRECONDITION_FAILED;
-            case DUPLICATE:
-                return HttpStatus.FORBIDDEN;
-            case NOT_FOUND:
-                return HttpStatus.NOT_FOUND;
-        }
-        return statusDefault;
-    }
+//    private HttpStatus getStatus(Result<Word> result, HttpStatus statusDefault) {
+//        switch (result.getStatus()) {
+//            case INVALID:
+//                return HttpStatus.PRECONDITION_FAILED;
+//            case DUPLICATE:
+//                return HttpStatus.FORBIDDEN;
+//            case NOT_FOUND:
+//                return HttpStatus.NOT_FOUND;
+//        }
+//        return statusDefault;
+//    }
 }
