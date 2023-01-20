@@ -1,15 +1,17 @@
 package learn.atliens.repo;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import learn.atliens.model.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
-public class  WordFileRepo implements WordRepo {
+public class WordFileRepo implements WordRepo {
 
     @Autowired
     private DynamoDBMapper dynamoDBMapper;
@@ -32,7 +34,12 @@ public class  WordFileRepo implements WordRepo {
 
     @Override
     public Word findWordByName(String name) {
-        return null;
+        List<Word> all = findAllWords();
+        return all.stream()
+                .filter(word -> word.getName().equalsIgnoreCase(name))
+//                .collect(Collectors.toList())
+//                .stream()
+                .findFirst().orElse(null);
     }
 
     @Override

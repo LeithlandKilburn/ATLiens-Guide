@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, MenuItem, useProSidebar } from 'react-pro-sidebar';
-import { Routes, Route, Link, Router } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import {
   Home,
@@ -14,7 +14,7 @@ import {
 
 const Navbar = () => {
   const { collapseSidebar } = useProSidebar();
-  
+
   return (
     <Menu>
       <MenuItem
@@ -24,10 +24,10 @@ const Navbar = () => {
       >
         ATLiens
       </MenuItem>
-      <MenuItem icon={<Home />} component={<Link to="/" />}>
+      <MenuItem icon={<Home />} component={<NavLink to="/" />}>
         Home
       </MenuItem>
-      <MenuItem icon={<LogIn />} component={<Link to="/login" />}>
+      <MenuItem icon={<LogIn />} component={<NavLink to="/login" />}>
         Login
       </MenuItem>
       <MenuItem icon={<UserPlus />}> Sign Up</MenuItem>

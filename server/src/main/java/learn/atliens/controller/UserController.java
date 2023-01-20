@@ -1,4 +1,5 @@
 package learn.atliens.controller;
+import learn.atliens.domain.Result;
 import learn.atliens.domain.UserResult;
 import learn.atliens.domain.UserService;
 import learn.atliens.model.User;
@@ -38,6 +39,7 @@ public class UserController {
     public List<User> findAll(){
         return repo.findAll();
     }
+
 
     @GetMapping("/{username}")
     public ResponseEntity<User> findAll(@PathVariable String username){

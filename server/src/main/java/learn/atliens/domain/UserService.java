@@ -29,6 +29,7 @@ public class UserService implements UserDetailsService {
 
     public UserResult add(User user){
         System.out.println("Hits add service method");
+
         UserResult result = validate(user);
         user.setPassword(passwordEncoder.encode(user.getPassword())); //Create password hash.
         try {
