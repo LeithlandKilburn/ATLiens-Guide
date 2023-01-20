@@ -1,5 +1,5 @@
 package learn.atliens.controller;
-import learn.atliens.domain.UserResult;
+import learn.atliens.domain.Result;
 import learn.atliens.domain.UserService;
 import learn.atliens.model.User;
 import learn.atliens.repo.UserRepo;
@@ -26,12 +26,12 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addUser(@RequestBody User user) {
-        UserResult result = service.add(user);
+    public ResponseEntity<User> addUser(@RequestBody User user) {
+        Result<User> result = service.add(user);
         if (result.isSuccess()) {
-            return new ResponseEntity<>(result.getUser(), HttpStatus.CREATED); // 201
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED); // 201
         } else {
-            return new ResponseEntity<>(result.getErrors(), HttpStatus.BAD_REQUEST); // 400
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.BAD_REQUEST); // 400
         }
     }
 }

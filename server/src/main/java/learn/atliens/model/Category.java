@@ -21,6 +21,6 @@ public class Category {
     @DynamoDBAttribute
     private String name;
 
-    @DynamoDBAttribute
-    private Boolean isExplicit;
+//    @DynamoDBAttribute
+//    private boolean isExplicit;
 }

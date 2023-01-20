@@ -43,7 +43,7 @@ class WordFileRepoTest {
         word.setDefinition("Test");
         word.setExample("Test");
         word.setVideoUrl("Test");
-        word.setUseRating("Test");
+        word.setUseRating(1);
         word.setCategory1Id("Test");
         word.setCategory2Id("Test");
         word.setCategory3Id("Test");
@@ -62,7 +62,7 @@ class WordFileRepoTest {
         word1.setDefinition("Test");
         word1.setExample("Test");
         word1.setVideoUrl("Test");
-        word1.setUseRating("Test");
+        word1.setUseRating(1);
         word1.setCategory1Id("Test");
         word1.setCategory2Id("Test");
         word1.setCategory3Id("Test");
@@ -72,7 +72,7 @@ class WordFileRepoTest {
         word2.setDefinition("Test2");
         word2.setExample("Test2");
         word2.setVideoUrl("Test2");
-        word2.setUseRating("Test2");
+        word2.setUseRating(1);
         word2.setCategory1Id("Test2");
         word2.setCategory2Id("Test2");
         word2.setCategory3Id("Test2");
@@ -90,7 +90,7 @@ class WordFileRepoTest {
     }
 
     @Test
-    void findWordById() {
+    void findWordByName() {
     }
 
     @Test

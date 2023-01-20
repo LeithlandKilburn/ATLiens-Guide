@@ -11,10 +11,17 @@ public class UserService {
     @Autowired
     private UserRepo repo;
 
-    public UserResult add(User user){
+    public Result<User> add(User user){
+        Result<User> result = new Result<>();
+
         System.out.println("Hits add service method");
-        repo.save(user);
-        UserResult result = new UserResult(user);
+        User inserted = repo.save(user);
+
+        if (inserted == null) {
+            result.addMessage(ActionStatus.INVALID, "insert failed");
+        } else {
+            result.setPayload(inserted);
+        }
         return result;
     }
 }
