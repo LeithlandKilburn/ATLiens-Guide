@@ -20,7 +20,30 @@ function Login() {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleCreate = (e) => {
+        e.preventDefault();
+        console.log(username, password);
+        fetch("http://localhost:8080/atliens/user", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({username, password})
+        })
+        .then(resp => {
+            if (resp.status === 201)
+            {
+                console.log("success");
+                
+                //navigate("/");
+
+            } else {
+                console.log("Failure");
+            }
+        });
+    }
+
+    const handleLogin = (e) => {
         e.preventDefault();
         console.log(username, password);
         fetch("http://localhost:8080/atliens/user", {
@@ -56,11 +79,11 @@ function Login() {
             </form>
 
             <div>
-                <button type="submit" onClick={(e) => handleSubmit(e)}>Login</button>
+                <button type="submit" onClick={(e) => handleLogin(e)}>Login</button>
             </div>
             
             <div>
-                <button className="container"  >Create Account</button>
+                <button className="container" onClick={(e) => handleCreate(e)}>Create Account</button>
             </div>
 
         </div>
