@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../css/SearchResultPage.css';
 import { useSelector } from 'react-redux';
 import { wordData } from '../store/slices/WordSlice';
+import WordCard from './WordCard';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -46,26 +47,29 @@ const SearchResultPage = () => {
     <div className="card-container">
       {/* map through the redux state data */}
       {words.map((word, index) => {
+        console.log(word);
         return (
-          <div key={index} className="single-card">
-            <Card>
-              {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-              <Card.Body>
-                <div className="card-buttons">
-                  {/* {isAdmin ?  */}
-                  <Edit2 onClick={handleEdit(word.wordId)} />
-                  {/*  : null} */}
-                  {isAdmin ? <X onClick={handleDelete(word.wordId)} /> : null}
-                </div>
-                <div className="card-body">
-                  <Card.Title>{word.name}</Card.Title>
-                  <Card.Text>{word.definition}</Card.Text>
-                  <Card.Text>{word.useRating}</Card.Text>
-                  <Button variant="primary">View More</Button>
-                </div>
-              </Card.Body>
-            </Card>
-          </div>
+          <WordCard word={word} />
+          // <div key={index} className="single-card">
+          //   <Card>
+          //     {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+          //     <Card.Body>
+          //       <div className="card-buttons">
+          //         {/* {isAdmin ?  */}
+          //         <Edit2 onClick={handleEdit(word.wordId)} />
+          //         {/*  : null} */}
+          //         {/* {isAdmin ?  */}
+          //         {/* <X onClick={handleDelete(word.wordId)} /> : null} */}
+          //       </div>
+          //       <div className="card-body">
+          //         <Card.Title>{word.name}</Card.Title>
+          //         <Card.Text>{word.definition}</Card.Text>
+          //         <Card.Text>{word.useRating}</Card.Text>
+          //         <Button variant="primary">View More</Button>
+          //       </div>
+          //     </Card.Body>
+          //   </Card>
+          // </div>
         );
       })}
 

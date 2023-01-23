@@ -1,0 +1,18 @@
+.scrolling-container 
+{
+    padding: 10px 1vw 0px 2vw;
+    margin: 0 3px 0 3px;
+    overflow-y: hidden;
+    background-color: #fefefe;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrolling-wrapper 
+{
+    display: grid;
+    grid-template-columns: repeat(6, 20%);
+    grid-auto-flow: column;
+    grid-column-gap: 12.5px;
+    background-color: #fefefe;
+}
