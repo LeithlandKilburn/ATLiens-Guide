@@ -17,6 +17,7 @@ public class WordService {
         Result<Word> result = new Result<>();
 
         System.out.println("Hits add word service method");
+
         Word inserted = wordFileRepo.addWord(word);
 
         if (inserted == null) {
@@ -34,6 +35,18 @@ public class WordService {
 
     public Word findWordByName(String name) {
         return wordFileRepo.findWordByName(name);
+    }
+
+    public String updateWord(String wordId, Word word) {
+//        Result<Word> result = new Result<>();
+        System.out.println("Hits update word service method");
+
+        return wordFileRepo.updateWord(wordId, word);
+
+    }
+
+    public String deleteWordById(String wordId) {
+        return wordFileRepo.deleteWordById(wordId);
     }
 
 }

@@ -42,7 +42,12 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET,
                         "/atliens/word/*").permitAll()
                 .antMatchers(HttpMethod.POST,
-                        "/atliens/word").hasAnyAuthority( "ADMIN")
+        "/atliens/word").permitAll() // TODO: change back to admin only later
+                .antMatchers(HttpMethod.PUT,
+                        "/atliens/word/*").permitAll() // TODO: change back to admin only later
+                .antMatchers(HttpMethod.DELETE,
+                        "/atliens/word/*").permitAll() // TODO: change back to admin only later
+//                .hasAnyAuthority( "ADMIN")
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()

@@ -1,7 +1,10 @@
 package learn.atliens.repo;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBSaveExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
 import learn.atliens.model.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -41,12 +44,20 @@ public class WordFileRepo implements WordRepo {
     }
 
     @Override
-    public boolean updateWord(Word word) {
-        return false;
+    public String updateWord(String wordId, Word word) {
+        dynamoDBMapper.save(word,
+                new DynamoDBSaveExpression()
+                        .withExpectedEntry("wordId",
+                                new ExpectedAttributeValue(
+                                        new AttributeValue().withS(wordId)
+                                )));
+        return wordId;
     }
 
     @Override
-    public boolean deleteWordById(int wordId) {
-        return false;
+    public String deleteWordById(String wordId) {
+        Word wordToDelete = dynamoDBMapper.load(Word.class, wordId);
+        dynamoDBMapper.delete(wordToDelete);
+        return "Word Deleted!";
     }
 }

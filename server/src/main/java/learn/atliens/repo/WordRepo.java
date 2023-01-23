@@ -21,8 +21,8 @@ public interface WordRepo {
 //    List<Word> findWordsByCategory(String category);
 
     // updateWord
-    boolean updateWord (Word word);
+    String updateWord (String wordId, Word word);
 
     // deleteWordById
-    boolean deleteWordById(int wordId);
+    String deleteWordById(String wordId);
 }

@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"})
-@RequestMapping("/atliens")
+@RequestMapping("/atliens/word")
 public class WordController {
 
     @Autowired
@@ -22,24 +22,39 @@ public class WordController {
     @Autowired
     private WordService wordService;
 
+    // WORKS
     @PostMapping
     public ResponseEntity<Word> addWord(@RequestBody Word word) {
         Result<Word> result = wordService.addWord(word);
         return new ResponseEntity<>(result.getPayload(), getStatus(result, HttpStatus.CREATED));
     }
 
+    // WORKS
     @GetMapping
     public List<Word> findAllWords() {
         return wordService.findAllWords();
     }
 
-    @GetMapping("/word/{name}")
+    // WORKS
+    @GetMapping("/{name}")
     public ResponseEntity<Word> findWordByName(@PathVariable String name) {
         Word expectedWord = wordService.findWordByName(name);
         if (expectedWord == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(expectedWord);
+    }
+
+    // WORKS
+    @PutMapping("/{id}")
+    public String updateWordById(@PathVariable("id") String wordId, @RequestBody Word word) {
+        return wordService.updateWord(wordId, word);
+    }
+
+    // WORKS
+    @DeleteMapping("/{id}")
+    public String deleteWordById(@PathVariable("id") String employeeId) {
+        return wordService.deleteWordById(employeeId);
     }
 
     private HttpStatus getStatus(Result<Word> result, HttpStatus statusDefault) {
