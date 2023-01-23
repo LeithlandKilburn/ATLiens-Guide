@@ -38,6 +38,7 @@ public class JwtConverter {
 
     public User getUserFromToken(String token) {
 
+        System.out.println("Checking user's roles");
         if (token == null || !token.startsWith("Bearer ")) {
             return null;
         }
