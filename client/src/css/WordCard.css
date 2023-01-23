@@ -1,0 +1,17 @@
+.card-body {
+  text-align: center;
+}
+
+.single-card {
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 250px;
+}
+
+.card-buttons {
+  /* text-align: right; */
+  display: flex;
+  justify-content: end;
+}

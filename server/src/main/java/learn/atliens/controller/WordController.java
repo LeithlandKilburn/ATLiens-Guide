@@ -54,8 +54,9 @@ public class WordController {
 
     // WORKS
     @DeleteMapping("/{id}")
-    public String deleteWordById(@PathVariable("id") String employeeId) {
-        return wordService.deleteWordById(employeeId);
+    public ResponseEntity<Void> deleteWordById(@PathVariable("id") String employeeId) {
+        Result<Word> result = wordService.deleteWordById(employeeId);
+        return new ResponseEntity<>(getStatus(result, HttpStatus.NO_CONTENT));
     }
 
     private HttpStatus getStatus(Result<Word> result, HttpStatus statusDefault) {
