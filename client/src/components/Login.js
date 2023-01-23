@@ -74,6 +74,7 @@ function Login() {
             }
         }).then (data => {
             console.log(data);
+            // setting the global state
             dispatch(login(data))
         });
     }

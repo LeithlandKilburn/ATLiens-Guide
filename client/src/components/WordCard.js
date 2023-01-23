@@ -5,14 +5,29 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Edit, X, Edit2 } from 'react-feather';
 import '../css/WordCard.css';
+import { useSelector } from 'react-redux';
+import { wordData } from '../store/slices/WordSlice';
 
-const WordCard = ({ wordData }) => {
+const WordCard = ({ word }) => {
   const navigate = useNavigate();
+
+  // useEffect(())
+
+  //Redux's state.
+  //   const wordId = useSelector((state) => state.word.wordId);
+  //   const name = useSelector((state) => state.word.name);
+  //   const definition = useSelector((state) => state.word.definition);
+  //   const example = useSelector((state) => state.word.example);
+  //   const useRating = useSelector((state) => state.word.useRating);
+  //   const videoURL = useSelector((state) => state.word.videoURL);
+  //   const category1Id = useSelector((state) => state.word.category1Id);
+  //   const category2Id = useSelector((state) => state.word.category2Id);
+  //   const category3Id = useSelector((state) => state.word.category3Id);
 
   const handleDelete = () => {};
 
   const handleEdit = () => {
-    navigate('/edit/' + wordData.wordId);
+    navigate('/edit/' + word.wordId);
   };
 
   return (
@@ -25,9 +40,9 @@ const WordCard = ({ wordData }) => {
             <X onClick={handleDelete} />
           </div>
           <div className="card-body">
-            <Card.Title>{wordData.name}</Card.Title>
-            <Card.Text>{wordData.definition}</Card.Text>
-            <Card.Text>{wordData.useRating}</Card.Text>
+            <Card.Title>{word?.name}</Card.Title>
+            <Card.Text>{word?.definition}</Card.Text>
+            <Card.Text>{word?.useRating}</Card.Text>
             {/* <Card.Title>TEST NAME</Card.Title>
             <Card.Text>TEST DEFINITION</Card.Text>
             <Card.Text>TEST USERATING</Card.Text> */}

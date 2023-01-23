@@ -20,6 +20,6 @@ Post http://localhost:8080/atliens/authenticate
 Content-Type: application/json
 
 {
-    "username": "cody5",
+    "username": "cody2",
     "password": "banks"
 }
