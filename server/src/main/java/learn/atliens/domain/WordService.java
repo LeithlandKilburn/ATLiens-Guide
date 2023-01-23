@@ -37,6 +37,10 @@ public class WordService {
         return wordFileRepo.findWordByName(name);
     }
 
+    public List<Word> findWordsByCategory(String category) {
+        return wordFileRepo.findWordsByCategory(category);
+    }
+
     public String updateWord(String wordId, Word word) {
 //        Result<Word> result = new Result<>();
         System.out.println("Hits update word service method");

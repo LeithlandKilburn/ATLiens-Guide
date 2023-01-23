@@ -3,6 +3,8 @@ package learn.atliens.model;
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import lombok.Data;
 
+import java.util.List;
+
 //word_id int primary key auto_increment,
 //name varchar(1000) not null (doesn’t have to be unique)
 //definition varchar(2048) not null
@@ -35,16 +37,10 @@ public class Word {
     @DynamoDBAttribute
     private int useRating;
 
-    // TODO: lookup if we can add categories list instead of 1,2,3
     @DynamoDBAttribute
-    private String category1Id;
+    private String categories;
 
     @DynamoDBAttribute
-    private String category2Id;
-
-    @DynamoDBAttribute
-    private String category3Id;
-
-    // TODO: add explicit tag here
+    private boolean isExplicit;
 
 }
