@@ -5,14 +5,18 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ProSidebarProvider } from 'react-pro-sidebar';
+import { Provider } from 'react-redux'
+import store from './store/Store.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ProSidebarProvider>
-        <App />
-      </ProSidebarProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ProSidebarProvider>
+          <App />
+        </ProSidebarProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
