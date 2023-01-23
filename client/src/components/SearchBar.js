@@ -15,6 +15,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
 
   const [searchValue, setSearchValue] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);
@@ -26,14 +27,19 @@ const SearchBar = () => {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          // setWordData([...wordData, data]);
-          // setting the global state
-          dispatch(wordData(data));
-        })
-
-        .then(() => {
-          navigate('/search');
+          if (data.length === 0) {
+            setErrorMessage('No Word Found. Please Try Again!');
+          } else {
+            setErrorMessage('');
+            // setting the global state
+            dispatch(wordData(data));
+            navigate('/search');
+          }
         });
+
+      // .then(() => {
+      //   navigate('/search');
+      // });
     } catch (err) {
       console.error(err);
     }

@@ -8,19 +8,7 @@ export const authSlice = createSlice({
 
   // we want to put what we want to pass + the initial values
   initialState: {
-    words: [/*
-      {
-        wordId: '',
-        name: '',
-        definition: '',
-        example: '',
-        useRating: '',
-        videoURL: '',
-        category1Id: '',
-        category2Id: '',
-        category3Id: '',
-      },*/
-    ],
+    words: [],
   },
 
   // reducers + actions
@@ -31,8 +19,11 @@ export const authSlice = createSlice({
       console.log(action.payload);
       state.words.push(action.payload);
     },
+    deleteWord: (state, action) => {
+      state.words.filter((word) => word.wordId !== action.payload);
+    },
   },
 });
 
-export const { wordData } = authSlice.actions;
+export const { wordData, deleteWord } = authSlice.actions;
 export default authSlice.reducer;

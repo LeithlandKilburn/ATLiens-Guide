@@ -49,8 +49,13 @@ public class WordService {
 
     }
 
-    public String deleteWordById(String wordId) {
-        return wordFileRepo.deleteWordById(wordId);
+    public Result<Word> deleteWordById(String wordId) {
+        Result<Word> result = new Result<>();
+        String deletedWord = wordFileRepo.deleteWordById(wordId);
+        if (!deletedWord.equalsIgnoreCase("Word Deleted!")) {
+            result.addMessage(ActionStatus.NOT_FOUND, "Word Id not found.");
+        }
+        return result;
     }
 
 }
