@@ -18,7 +18,7 @@ public interface WordRepo {
     Word findWordByName(String name);
 
     // findWordsByCategory
-//    List<Word> findWordsByCategory(String category);
+    List<Word> findWordsByCategory(String category);
 
     // updateWord
     String updateWord (String wordId, Word word);

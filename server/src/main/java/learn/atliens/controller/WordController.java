@@ -46,6 +46,15 @@ public class WordController {
         return ResponseEntity.ok(expectedWord);
     }
 
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<Word>> findWordByCategory(@PathVariable String category) {
+        List<Word> expectedWords = wordService.findWordsByCategory(category);
+        if (expectedWords == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(expectedWords);
+    }
+
     // WORKS
     @PutMapping("/{id}")
     public String updateWordById(@PathVariable("id") String wordId, @RequestBody Word word) {

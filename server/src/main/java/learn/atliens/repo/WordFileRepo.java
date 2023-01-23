@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class WordFileRepo implements WordRepo {
@@ -41,6 +42,14 @@ public class WordFileRepo implements WordRepo {
 //                .collect(Collectors.toList())
 //                .stream()
                 .findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Word> findWordsByCategory(String category) {
+        List<Word> all = findAllWords();
+        return all.stream()
+                .filter(word -> word.getCategories().contains(category))
+                .collect(Collectors.toList());
     }
 
     @Override

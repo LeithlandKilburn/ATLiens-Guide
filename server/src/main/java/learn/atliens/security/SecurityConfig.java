@@ -48,6 +48,8 @@ public class SecurityConfig {
                         "/atliens/user/create_account").permitAll()
                 .antMatchers(HttpMethod.GET,
                         "/atliens/word/*").permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/atliens/word/category/*").permitAll()
                 .antMatchers(HttpMethod.POST,
                         "/atliens/word").hasAnyAuthority("ADMIN")
                 .antMatchers(HttpMethod.PUT,
