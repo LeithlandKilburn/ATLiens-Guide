@@ -49,12 +49,11 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET,
                         "/atliens/word/*").permitAll()
                 .antMatchers(HttpMethod.POST,
-        "/atliens/word").permitAll() // TODO: change back to admin only later
+        "/atliens/word").hasAnyAuthority( "ADMIN")
                 .antMatchers(HttpMethod.PUT,
-                        "/atliens/word/*").permitAll() // TODO: change back to admin only later
+                        "/atliens/word/*").hasAnyAuthority( "ADMIN")
                 .antMatchers(HttpMethod.DELETE,
-                        "/atliens/word/*").permitAll() // TODO: change back to admin only later
-//                .hasAnyAuthority( "ADMIN")
+                        "/atliens/word/*").hasAnyAuthority( "ADMIN")
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()
