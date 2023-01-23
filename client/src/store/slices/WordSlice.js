@@ -8,7 +8,7 @@ export const authSlice = createSlice({
 
   // we want to put what we want to pass + the initial values
   initialState: {
-    words: [
+    words: [/*
       {
         wordId: '',
         name: '',
@@ -19,7 +19,7 @@ export const authSlice = createSlice({
         category1Id: '',
         category2Id: '',
         category3Id: '',
-      },
+      },*/
     ],
   },
 
