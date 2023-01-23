@@ -49,7 +49,11 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET,
                         "/atliens/word/*").permitAll()
                 .antMatchers(HttpMethod.POST,
-                        "/atliens/word").hasAnyAuthority( "ADMIN")
+                        "/atliens/word").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.PUT,
+                        "/atliens/word/*").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE,
+                        "/atliens/word/*").hasAnyAuthority("ADMIN")
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()
