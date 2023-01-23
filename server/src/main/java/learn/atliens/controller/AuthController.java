@@ -10,15 +10,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/atliens")
 public class AuthController {
 
@@ -49,13 +47,12 @@ public class AuthController {
 
         //Ensure user exists and get auth roles.
         try {
-            Authentication authentication = authenticationManager.authenticate(authToken); //Potentially connect to DynamoDb for custom authentication.
-            //User authUser = appUserService.authenticate(credentials.get("username"), credentials.get("password"));
+            Authentication authentication = authenticationManager.authenticate(authToken);
             if (authentication.isAuthenticated()) {
                 HashMap<String, String> map = new HashMap<>();
-                //map.put("User", maybeUser.toString());
                 String jwtToken = converter.getTokenFromUser((User)authentication.getPrincipal());
                 map.put("jwt_token", jwtToken);
+                map.put("user", "josh");
 
                 return new ResponseEntity<>(map, HttpStatus.OK);
             }

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000"})
-@RequestMapping("/atliens")
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/atliens/word")
 public class WordController {
 
     @Autowired
