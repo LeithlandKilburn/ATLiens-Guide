@@ -7,13 +7,14 @@ import Button from 'react-bootstrap/Button';
 
 import { Search } from 'react-feather';
 import '../css/SearchBar.css';
-import AuthContext from '../contexts/AuthContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { wordData } from '../store/slices/WordSlice';
 
-const SearchBar = ({ wordData, setWordData }) => {
+const SearchBar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [searchValue, setSearchValue] = useState('');
-  // const [wordData, setWordData] = useState([]);
 
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);
@@ -25,8 +26,10 @@ const SearchBar = ({ wordData, setWordData }) => {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          setWordData([...wordData, data]);
-        }) // set that data
+          // setWordData([...wordData, data]);
+          // setting the global state
+          dispatch(wordData(data));
+        })
 
         .then(() => {
           navigate('/search');

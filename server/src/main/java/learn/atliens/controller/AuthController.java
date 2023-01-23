@@ -51,6 +51,7 @@ public class AuthController {
             if (authentication.isAuthenticated()) {
                 HashMap<String, String> map = new HashMap<>();
                 String jwtToken = converter.getTokenFromUser((User)authentication.getPrincipal());
+                System.out.println((User)authentication.getPrincipal());
                 map.put("jwt_token", jwtToken);
                 map.put("user", "josh");
 
