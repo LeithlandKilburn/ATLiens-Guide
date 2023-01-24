@@ -9,6 +9,7 @@ import learn.atliens.model.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,6 +32,7 @@ public class WordFileRepo implements WordRepo {
         // dynamoDbMapper.scan() = method to retrieve all the records of a table
         // Word.class = the class of the obj to be returned
         // DynamoDbScanExpression is like a filter. If empty, it returns everything on table
+//        System.out.println();
         return dynamoDBMapper.scan(Word.class, new DynamoDBScanExpression());
     }
 
@@ -47,9 +49,33 @@ public class WordFileRepo implements WordRepo {
     @Override
     public List<Word> findWordsByCategory(String category) {
         List<Word> all = findAllWords();
-        return all.stream()
-                .filter(word -> word.getCategories().contains(category))
-                .collect(Collectors.toList());
+
+        List<Word> filteredWords = new ArrayList<>();
+
+        for (int i = 0; i < all.size(); i++) {
+            System.out.println(all.get(i).getCategories());
+            if (all.get(i).getCategories().contains(category)) {
+                filteredWords.add(all.get(i));
+            }
+        }
+
+        return filteredWords;
+
+//        all.stream()
+//                .filter(word -> {
+//                    System.out.println(word);
+//                    // check if it's null before you return
+//                    if (word.getCategories() != null) {
+//                        System.out.println(word.getCategories());
+//                        if (word.getCategories().contains(category)) {
+//                            filteredWords.add(word);
+//                        }
+//                    }
+////                    return word.getCategories().contains(category);
+//                    return true;
+//                });
+//        return filteredWords;
+//                .collect(Collectors.toList());
     }
 
     @Override

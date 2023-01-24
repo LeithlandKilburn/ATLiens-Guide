@@ -34,7 +34,7 @@ const WordCard = ({ word }) => {
       })
       // or you can remove it from the state
       .then(() => {
-        dispatchEvent(deleteWord(wordId));
+        dispatch(deleteWord(wordId));
         navigate('/confirmation');
       })
       .catch(() => {
@@ -48,6 +48,11 @@ const WordCard = ({ word }) => {
     navigate(`/edit/${wordId}`);
   };
 
+  const handleViewMore = (wordId) => {
+    dispatch(editWordData(word));
+    navigate(`/view/${wordId}`);
+  };
+
   return (
     <div className="single-card">
       <Card>
@@ -55,11 +60,13 @@ const WordCard = ({ word }) => {
         <Card.Body>
           <div className="card-buttons">
             <Edit2
+              style={{ cursor: 'pointer' }}
               onClick={() => {
                 handleEdit(word?.wordId);
               }}
             />
             <X
+              style={{ cursor: 'pointer' }}
               onClick={() => {
                 handleDelete(word?.wordId);
               }}
@@ -69,10 +76,10 @@ const WordCard = ({ word }) => {
             <Card.Title>{word?.name}</Card.Title>
             <Card.Text>{word?.definition}</Card.Text>
             <Card.Text>{word?.useRating}</Card.Text>
-            {/* <Card.Title>TEST NAME</Card.Title>
-            <Card.Text>TEST DEFINITION</Card.Text>
-            <Card.Text>TEST USERATING</Card.Text> */}
-            <Button variant="primary">View More</Button>
+
+            <Button variant="primary" onClick={handleViewMore}>
+              View More
+            </Button>
           </div>
         </Card.Body>
       </Card>

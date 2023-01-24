@@ -63,10 +63,13 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- NEW CONFIGURATION <<<< -->
+        <!-- testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <!-- 1. New element: exclusions -->
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
@@ -116,6 +119,16 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+<!--        <dependency>-->
+<!--            <groupId>org.mockito</groupId>-->
+<!--            <artifactId>mockito-core</artifactId>-->
+<!--            <version>4.8.1</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+
     </dependencies>
 
 <!--    <build>-->
