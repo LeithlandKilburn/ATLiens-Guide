@@ -5,12 +5,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Edit, X, Edit2 } from 'react-feather';
 import '../css/WordCard.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { deleteWord, wordData } from '../store/slices/WordSlice';
+import { editWordData } from '../store/slices/EditWordSlice';
 import Alert from 'react-bootstrap/Alert';
 
 const WordCard = ({ word }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const authToken = useSelector((state) => state.auth.authToken);
   // console.log(authToken);
@@ -41,6 +43,8 @@ const WordCard = ({ word }) => {
   };
 
   const handleEdit = (wordId) => {
+    dispatch(editWordData(word));
+    // console.log(editWordData);
     navigate(`/edit/${wordId}`);
   };
 

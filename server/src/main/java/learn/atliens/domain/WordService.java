@@ -41,12 +41,18 @@ public class WordService {
         return wordFileRepo.findWordsByCategory(category);
     }
 
-    public String updateWord(String wordId, Word word) {
-//        Result<Word> result = new Result<>();
-        System.out.println("Hits update word service method");
+    public Result<Word> updateWord(String wordId, Word word) {
+        Result<Word> result = new Result<>();
 
-        return wordFileRepo.updateWord(wordId, word);
+        if (result.getStatus() != ActionStatus.SUCCESS) {
+            return result;
+        }
 
+        String updateWord = wordFileRepo.updateWord(wordId, word);
+        if (!updateWord.equalsIgnoreCase("Word Updated!")) {
+            result.addMessage(ActionStatus.NOT_FOUND, "Word Id & word not found.");
+        }
+        return result;
     }
 
     public Result<Word> deleteWordById(String wordId) {

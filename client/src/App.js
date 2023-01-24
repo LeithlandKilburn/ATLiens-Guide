@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './components/Home.js';
 import SearchResultPage from './components/SearchResultPage.js';
@@ -20,14 +19,16 @@ function App() {
         <Sidebar>
           <Navbar />
         </Sidebar>
-        </div>
+      </div>
       <div className="routes-container">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Login />} />
           <Route path="/search" element={<SearchResultPage />} />
           <Route path="/edit/:wordId" element={<EditWordForm />} />
           <Route path="/forum" element={<SlangForum />} />
+          <Route path="/add" element={<EditWordForm />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/error" element={<Error />} />
           <Route path="*" element={<NotFound />} />

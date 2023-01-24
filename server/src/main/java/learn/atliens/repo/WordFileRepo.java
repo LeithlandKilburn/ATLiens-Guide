@@ -60,7 +60,7 @@ public class WordFileRepo implements WordRepo {
                                 new ExpectedAttributeValue(
                                         new AttributeValue().withS(wordId)
                                 )));
-        return wordId;
+        return "Word Updated!";
     }
 
     @Override

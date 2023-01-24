@@ -44,9 +44,6 @@ class WordFileRepoTest {
         word.setExample("Test");
         word.setVideoUrl("Test");
         word.setUseRating(1);
-        word.setCategory1Id("Test");
-        word.setCategory2Id("Test");
-        word.setCategory3Id("Test");
         System.out.println(word);
 
         wordFileRepo.addWord(word);
@@ -63,9 +60,6 @@ class WordFileRepoTest {
         word1.setExample("Test");
         word1.setVideoUrl("Test");
         word1.setUseRating(1);
-        word1.setCategory1Id("Test");
-        word1.setCategory2Id("Test");
-        word1.setCategory3Id("Test");
 
         Word word2 = new Word();
         word2.setName("Test2");
@@ -73,9 +67,6 @@ class WordFileRepoTest {
         word2.setExample("Test2");
         word2.setVideoUrl("Test2");
         word2.setUseRating(1);
-        word2.setCategory1Id("Test2");
-        word2.setCategory2Id("Test2");
-        word2.setCategory3Id("Test2");
 
         List<Word> expectedWords = new ArrayList<>();
         expectedWords.add(word1);
@@ -91,6 +82,8 @@ class WordFileRepoTest {
 
     @Test
     void findWordByName() {
+
+
     }
 
     @Test
