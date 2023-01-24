@@ -21,9 +21,9 @@ import java.util.Map;
 public class AuthController {
 
 
-    private final AuthenticationManager authenticationManager;
-    private final JwtConverter converter;
-    private final UserService userService;
+    private AuthenticationManager authenticationManager;
+    private JwtConverter converter;
+    private UserService userService;
 
     public AuthController(AuthenticationManager authenticationManager,
                           JwtConverter converter,

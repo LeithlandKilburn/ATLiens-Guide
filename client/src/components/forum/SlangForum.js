@@ -27,6 +27,7 @@ export default function SlangForum() {
             }
         })
         .then(data => {
+            console.log(data)
             dispatch(setForumPosts(data));
 
         })

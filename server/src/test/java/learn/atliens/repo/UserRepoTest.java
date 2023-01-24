@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.ArrayList;
@@ -26,25 +27,33 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class UserRepoTest {
 
-    @Autowired
     private UserRepo repo;
 
-    @Autowired
     private DynamoDBMapper dynamoDBMapper;
 
-    //@Test
-//    public void sampleTestCase() {
-//        User gosling = new User("gosling", "pass", true, List.of("ADMIN"));
-//        //gosling.setUserId("1");
-//        dynamoDBMapper.save(gosling);
+    public UserRepoTest (UserRepo repo, DynamoDBMapper dynamoDBMapper) {
+        this.repo = repo;
+        this.dynamoDBMapper = dynamoDBMapper;
+    }
+    @Test
+    public void findAll() {
+//        User user1 = new User();
+//        user1.setUsername("Cody Banks");
+//        dynamoDBMapper.save(user1);
 //
-//        User hoeller = new User("hoeller", "pass", true, List.of("ADMIN"));
-//        //hoeller.setUserId("2");
-//        dynamoDBMapper.save(hoeller);
+//        User user2 = new User();
+//        user1.setUsername("Hillary Duff");
+//        dynamoDBMapper.save(user2);
 //
-//        List<User> result = repo.findAll();
-//        assertEquals(result.size(), 2);
-//        assertEquals(result.get(0), gosling);
-//    }
+        List<User> result = repo.findAll();
+        System.out.println(result.get(0));
+        assertEquals(2, result.size());
+    }
+
+    @Test
+    public void shouldFindCodyBanks() {
+        User result = repo.findByUsername("Cody Banks");
+        assertEquals(result.getUsername(), "Cody Banks");
+    }
 
 }
