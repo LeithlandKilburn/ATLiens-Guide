@@ -29,6 +29,11 @@ public class UserService implements UserDetailsService {
         System.out.println("Hits add service method");
 
         UserResult result = validate(user);
+        if (!result.isSuccess())
+        {
+            return result;
+        }
+
         user.setPassword(passwordEncoder.encode(user.getPassword())); //Create password hash.
         try {
             user.setAuthorities(List.of(new SimpleGrantedAuthority("ADMIN")));
@@ -50,7 +55,29 @@ public class UserService implements UserDetailsService {
     }
 
     private UserResult validate (User user) {
-        return new UserResult();
+        UserResult result =  new UserResult();
+
+        if (user.getUsername().isBlank()) {
+            result.addMessage("Must enter a username");
+        }
+        if (user.getPassword().isBlank()){
+            result.addMessage("Must enter a username");
+        }
+        if (user.getAuthorities() == null) {
+            result.addMessage("Must enter a username");
+        }
+
+        List<User> existingUsers = repo.findAll();
+
+        if (existingUsers != null) {
+            for (int i = 0; i < existingUsers.size(); i++)
+            {
+                if (user.getUsername().equals(existingUsers.get(i).getUsername())){
+                    result.addMessage("This username already exists");
+                }
+            }
+        }
+        return result;
     }
 
 }

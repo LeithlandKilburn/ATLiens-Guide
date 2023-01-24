@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,27 +18,23 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/atliens/user")
 public class UserController {
-    @Autowired
-    private UserRepo repo;
-    @Autowired
     private UserService service;
 
-    @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Autowired
     private JwtConverter converter;
 
-
-    @GetMapping
-    public List<User> findAll(){
-        return repo.findAll();
+    public UserController(UserService service, AuthenticationManager authenticationManager, JwtConverter converter){
+        this.converter = converter;
+        this.authenticationManager = authenticationManager;
+        this.service = service;
     }
+
 
 
     @GetMapping("/{username}")
     public ResponseEntity<User> findAll(@PathVariable String username){
-        User user = repo.findByUsername(username);
+        User user = (User) service.loadUserByUsername(username);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 

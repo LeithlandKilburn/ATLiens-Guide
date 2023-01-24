@@ -9,10 +9,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+
 @Repository
 public class UserRepo {
-    @Autowired
+
     private DynamoDBMapper dynamoDBMapper;
+
+    public UserRepo (DynamoDBMapper dynamoDBMapper) {
+        this.dynamoDBMapper = dynamoDBMapper;
+    }
 
     @Transactional
     public User add(User user){
