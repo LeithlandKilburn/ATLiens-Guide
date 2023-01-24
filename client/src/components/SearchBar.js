@@ -22,35 +22,36 @@ const SearchBar = () => {
   };
 
   const handleSearch = () => {
-    try {
-      fetch('http://localhost:8080/atliens/word/' + searchValue)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          if (data.length === 0) {
-            setErrorMessage('No Word Found. Please Try Again!');
-          } else {
-            setErrorMessage('');
-            // setting the global state
-            dispatch(wordData(data));
-            navigate('/search');
-          }
-        });
-
-      // .then(() => {
-      //   navigate('/search');
-      // });
-    } catch (err) {
-      console.error(err);
+    if (searchValue) {
+      try {
+        fetch('http://localhost:8080/atliens/word/' + searchValue)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.length === 0) {
+              setErrorMessage('No Word Found. Please Try Again!');
+            } else {
+              setErrorMessage('');
+              // setting the global state
+              dispatch(wordData(data));
+              navigate('/search');
+            }
+          });
+  
+        // .then(() => {
+        //   navigate('/search');
+        // });
+      } catch (err) {
+        console.error(err);
+      }
     }
   };
 
   return (
     <div className="search-bar-container">
-      <div className="container">
+      <div className="search-cont">
         <InputGroup size="lg">
           <InputGroup.Text id="inputGroup-sizing-lg">
-            <Search size="20" />
+            <Search />
           </InputGroup.Text>
           <Form.Control
             aria-label="Large"

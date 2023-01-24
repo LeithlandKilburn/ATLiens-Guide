@@ -12,10 +12,6 @@ import Alert from 'react-bootstrap/Alert';
 const WordCard = ({ word }) => {
   const navigate = useNavigate();
 
-  //Redux's state.
-  const words = useSelector((state) => state.word.words);
-  const user = useSelector((state) => state.auth.user);
-  // console.log(user);
   const authToken = useSelector((state) => state.auth.authToken);
   // console.log(authToken);
   // const role = user ? user.authorities : null;

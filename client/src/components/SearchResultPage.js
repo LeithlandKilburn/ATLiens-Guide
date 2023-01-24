@@ -11,7 +11,6 @@ const SearchResultPage = () => {
   return (
     <div className="card-container">
       {words.map((word, index) => {
-        console.log(word);
         return <WordCard word={word} />;
       })}
     </div>

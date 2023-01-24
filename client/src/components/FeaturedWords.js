@@ -16,7 +16,6 @@ const FeaturedWords = ({ wordData }) => {
       fetch('http://localhost:8080/atliens/word/')
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setFeaturedWords(data);
         })
     } catch (err) {
@@ -28,11 +27,12 @@ const FeaturedWords = ({ wordData }) => {
 
 
   return (
-    <div className="scrolling-container">
-      {console.log(featuredWords)}
+    <div className="featured-container">
       <h1>Featured Words</h1>
-      <div className="scrolling-wrapper">
-        {featWords}
+      <div className="scrolling-container">
+        <div className="scrolling-wrapper">
+          {featWords}{featWords}{featWords}{featWords}{featWords}
+        </div>
       </div>
     </div>
   );
