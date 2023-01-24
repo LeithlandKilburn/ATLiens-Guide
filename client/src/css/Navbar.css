@@ -2,3 +2,10 @@
   font-weight: bold !important;
   color: #f32a5f !important;
 }
+.nav-cont {
+  height: 100%;
+}
+
+.ps-sidebar-root {
+  height: 100%;
+}

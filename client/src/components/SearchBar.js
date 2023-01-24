@@ -24,37 +24,36 @@ const SearchBar = () => {
   };
 
   const handleSearch = () => {
-    try {
-      fetch('http://localhost:8080/atliens/word/' + searchValue)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          if (data.length === 0) {
-            setErrorMessage('No Word Found. Please Try Again!');
-          } else {
-            setErrorMessage('');
-            // setting the global state
-            dispatch(wordData(data));
-            navigate('/search');
-          }
-        });
+    if (searchValue) {
+      try {
+        fetch('http://localhost:8080/atliens/word/' + searchValue)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.length === 0) {
+              setErrorMessage('No Word Found. Please Try Again!');
+            } else {
+              setErrorMessage('');
+              // setting the global state
+              dispatch(wordData(data));
+              navigate('/search');
+            }
+          });
 
-      // .then(() => {
-      //   navigate('/search');
-      // });
-    } catch (err) {
-      console.error(err);
+        // .then(() => {
+        //   navigate('/search');
+        // });
+      } catch (err) {
+        console.error(err);
+      }
     }
   };
 
   return (
     <div className="search-bar-container">
-      <div className="container">
-        {/* <Row>
-          <Col xs={9}> */}
+      <div className="search-cont">
         <InputGroup size="lg">
           <InputGroup.Text id="inputGroup-sizing-lg">
-            <Search size="20" />
+            <Search />
           </InputGroup.Text>
           <Form.Control
             onSubmit={(e) => handleSearch(e)} // TODO
@@ -63,13 +62,9 @@ const SearchBar = () => {
             onChange={handleInputChange}
           />
         </InputGroup>
-        {/* </Col>
-          <Col xs={3}> */}
         <Button variant="primary" type="submit" onClick={handleSearch}>
           Search
         </Button>
-        {/* </Col>
-        </Row> */}
       </div>
     </div>
   );

@@ -1,3 +1,8 @@
 .search-bar-container {
   margin-top: 5%;
 }
+
+.search-cont {
+  width: 70%;
+  margin: 0 50px;
+}

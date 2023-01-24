@@ -1,8 +1,21 @@
+.filter-container {
+    width: 70%;
+    margin: 30px 50px;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
 .search-filter {
 
     background-color: antiquewhite;
+    border: 3px solid rgb(143, 116, 80);
     border-radius: 10px;
     min-width: fit-content;
     width: 10vw;
     padding: 10px;
+    margin: auto;
+    text-align: center;
 }
