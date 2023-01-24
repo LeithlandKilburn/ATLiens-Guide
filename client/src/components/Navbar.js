@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Menu, MenuItem, useProSidebar } from 'react-pro-sidebar';
 import { NavLink } from 'react-router-dom';
 import '../css/Navbar.css';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logout } from '../store/slices/AuthSlice';
 
@@ -22,6 +23,9 @@ const Navbar = () => {
   const { collapseSidebar } = useProSidebar();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const user = useSelector((state) => state.auth.user);
+  const authToken = useSelector((state) => state.auth.authToken);
 
   const handleLogOut = () => {
     dispatch(logout()); //clear authentication token from the store
@@ -59,12 +63,13 @@ const Navbar = () => {
         </MenuItem>
         <MenuItem icon={<Save />}> Saved</MenuItem>
         <MenuItem icon={<Columns />} component={<NavLink to="/forum" />}>
-          {' '}
           Slang Forum
         </MenuItem>
+
         <MenuItem icon={<LogOut />} onClick={handleLogOut}>
           Log Out
         </MenuItem>
+
         <MenuItem
           icon={<PlusCircle />}
           component={

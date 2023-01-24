@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdGxpZW5zIiwic3ViIjoiY29keTIiLCJ1c2VyX2lkIjoiYjM3NzFlZGYtOGNhMS00NmJhLWIwMjQtNzU1N2ZhMTUwNTMzIiwiYXV0aG9yaXRpZXMiOiJBRE1JTiIsImV4cCI6MTY3NDYyMTk1Nn0.iZ6wlEP3CPc5Y0-Qz0YWyXgzc0Qnj0kTaAaKQmSYbxI
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdGxpZW5zIiwic3ViIjoiY29keTIiLCJ1c2VyX2lkIjoiYjM3NzFlZGYtOGNhMS00NmJhLWIwMjQtNzU1N2ZhMTUwNTMzIiwiYXV0aG9yaXRpZXMiOiJBRE1JTiIsImV4cCI6MTY3NDY3ODE3MX0.niss89BCSPCE3mtPF5LHvM9vVAMcZbla4uYt-Ae8vQQ
 
 get http://localhost:8080/atliens/user
 
@@ -39,9 +39,15 @@ POST http://localhost:8080/atliens/word HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
-{
-    "name": "test5"
-}
+    {
+        "name": "Test2",
+        "definition": "Test",
+        "example": "Test",
+        "videoUrl": "Test",
+        "useRating": 0,
+        "categories": "Happy",
+        "explicit": false
+    }
 
 ###
 

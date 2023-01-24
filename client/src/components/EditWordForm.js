@@ -21,6 +21,7 @@ const EditWordForm = () => {
   const handleChange = (e) => {
     const updatedWord = { ...singleWord };
     updatedWord[e.target.name] = e.target.value;
+    console.log(updatedWord);
     setUpdatedWord(updatedWord);
   };
 
@@ -37,8 +38,6 @@ const EditWordForm = () => {
         if (response.status === 204) {
           dispatch(editWordData(updatedWord));
           navigate('/confirmation');
-        } else {
-          navigate('/error');
         }
       })
       .catch(() => {
@@ -54,6 +53,7 @@ const EditWordForm = () => {
           <Form.Label>Word</Form.Label>
           <Form.Control
             type="text"
+            name="name"
             defaultValue={singleWord?.name}
             placeholder="Enter Word"
             onChange={handleChange}
@@ -66,7 +66,8 @@ const EditWordForm = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Definition</Form.Label>
           <Form.Control
-            type="email"
+            type="text"
+            name="definition"
             defaultValue={singleWord?.definition}
             placeholder="Enter Definition"
             onChange={handleChange}
@@ -76,7 +77,8 @@ const EditWordForm = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Example</Form.Label>
           <Form.Control
-            type="email"
+            type="text"
+            name="example"
             defaultValue={singleWord?.example}
             placeholder="Enter Example"
             onChange={handleChange}
@@ -89,7 +91,8 @@ const EditWordForm = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Use Rating</Form.Label>
           <Form.Control
-            type="email"
+            type="number"
+            name="useRating"
             defaultValue={singleWord?.useRating}
             placeholder="Enter Use Rating"
             onChange={handleChange}
@@ -100,7 +103,7 @@ const EditWordForm = () => {
         </Form.Group>
 
         <Form.Label>Categories</Form.Label>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Category 1" />
         </Form.Group>
 
@@ -114,12 +117,20 @@ const EditWordForm = () => {
 
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Category 4" />
-        </Form.Group>
+        </Form.Group> */}
+        <Form.Control
+          type="text"
+          name="categories"
+          defaultValue={singleWord?.categories}
+          placeholder="Categories"
+          onChange={handleChange}
+        />
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Video URL</Form.Label>
           <Form.Control
-            type="email"
+            type="text"
+            name="videoUrl"
             defaultValue={singleWord?.videoUrl}
             placeholder="Enter Video URL"
             onChange={handleChange}

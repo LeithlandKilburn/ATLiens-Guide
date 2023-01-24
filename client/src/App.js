@@ -11,6 +11,9 @@ import './css/App.css';
 import Login from './components/Login.js';
 import { Sidebar } from 'react-pro-sidebar';
 import Navbar from './components/Navbar.js';
+import SingleWordCard from './components/SingleWordCard.js';
+
+//TODO: change to word name path for search
 
 function App() {
   return (
@@ -31,6 +34,7 @@ function App() {
           <Route path="/add" element={<EditWordForm />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/error" element={<Error />} />
+          <Route path="/view/:wordId" element={<SingleWordCard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

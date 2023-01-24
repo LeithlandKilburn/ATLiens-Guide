@@ -9,3 +9,7 @@ aws dynamodb create-table \
         ReadCapacityUnits=5,WriteCapacityUnits=5 \
     --table-class STANDARD \
 --endpoint-url http://localhost:8000
+
+aws dynamodb scan --table-name <table-name> --endpoint-url http://localhost:8000
+
+aws dynamodb list-tables --endpoint-url http://localhost:8000

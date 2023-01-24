@@ -65,6 +65,7 @@ const SearchBar = () => {
         <Button variant="primary" type="submit" onClick={handleSearch}>
           Search
         </Button>
+        <p>{errorMessage}</p>
       </div>
     </div>
   );
