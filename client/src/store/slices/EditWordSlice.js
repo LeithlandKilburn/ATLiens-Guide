@@ -4,13 +4,13 @@ export const authSlice = createSlice({
   name: 'editWord',
 
   initialState: {
-    words: [],
+    word: {},
   },
 
   reducers: {
     editWordData: (state, action) => {
       console.log(action.payload);
-      state.words.push(action.payload);
+      state.word = action.payload;
     },
   },
 });
