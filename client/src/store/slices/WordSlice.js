@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // organize data into slices
 // create slice method
-export const authSlice = createSlice({
+export const wordSlice = createSlice({
   //& name it
   name: 'word',
 
@@ -16,8 +16,7 @@ export const authSlice = createSlice({
     // switch statements with different cases
     // if you call login, the reducer hits the login case
     wordData: (state, action) => {
-      console.log(action.payload);
-      state.words.push(action.payload);
+      state.words = [action.payload];
     },
     deleteWord: (state, action) => {
       state.words.filter((word) => word.wordId !== action.payload);
@@ -25,5 +24,5 @@ export const authSlice = createSlice({
   },
 });
 
-export const { wordData, deleteWord } = authSlice.actions;
-export default authSlice.reducer;
+export const { wordData, deleteWord } = wordSlice.actions;
+export default wordSlice.reducer;

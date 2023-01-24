@@ -12,7 +12,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity/*(debug = true)*/
 @Configuration
 public class SecurityConfig {
     private final JwtConverter converter;
@@ -56,6 +56,12 @@ public class SecurityConfig {
                         "/atliens/word/*").hasAnyAuthority("ADMIN")
                 .antMatchers(HttpMethod.DELETE,
                         "/atliens/word/*").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.GET,
+                        "/atliens/forum").permitAll()
+                .antMatchers(HttpMethod.POST,
+                        "/atliens/forum").permitAll()
+                .antMatchers(HttpMethod.DELETE,
+                        "/atliens/forum").hasAnyAuthority("ADMIN")
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()
