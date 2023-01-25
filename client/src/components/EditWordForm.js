@@ -17,6 +17,7 @@ const EditWordForm = () => {
   const authToken = useSelector((state) => state.auth.authToken);
 
   const [updatedWord, setUpdatedWord] = useState(singleWord);
+  const [wordToAdd, setWordToAdd] = useState('');
 
   const handleChange = (e) => {
     const updatedWord = { ...singleWord };
@@ -37,6 +38,26 @@ const EditWordForm = () => {
       .then((response) => {
         if (response.status === 204) {
           dispatch(editWordData(updatedWord));
+          navigate('/confirmation');
+        }
+      })
+      .catch(() => {
+        navigate('/error');
+      });
+  };
+
+  const handleAdd = () => {
+    fetch(`http://localhost:8080/atliens/word/${singleWord.wordId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`,
+      },
+      body: JSON.stringify(wordToAdd),
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          // dispatch(editWordData(updatedWord));
           navigate('/confirmation');
         }
       })
@@ -136,7 +157,7 @@ const EditWordForm = () => {
             onChange={handleChange}
           />
           <Form.Text className="text-muted">
-            Share a video of this word being used.
+            Share a video of this word being used. Please use the embed link.
           </Form.Text>
         </Form.Group>
 
@@ -146,6 +167,10 @@ const EditWordForm = () => {
         </Form.Group> */}
 
         <Button variant="primary" type="submit" onClick={handleEdit}>
+          Edit Word
+        </Button>
+
+        <Button variant="primary" type="submit" onClick={handleAdd}>
           Edit Word
         </Button>
       </Form>

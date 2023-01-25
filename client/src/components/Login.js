@@ -61,7 +61,6 @@ function Login() {
           console.log('success');
           console.log(resp);
           return resp.json();
-          //navigate("/");
         } else {
           console.log('Failure');
         }
@@ -70,6 +69,7 @@ function Login() {
         console.log(data);
         // setting the global state
         dispatch(login(data));
+        navigate('/');
       });
   };
 
