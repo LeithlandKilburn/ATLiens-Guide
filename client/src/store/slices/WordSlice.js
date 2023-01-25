@@ -19,7 +19,7 @@ export const wordSlice = createSlice({
       state.words = [action.payload];
     },
     deleteWord: (state, action) => {
-      state.words.filter((word) => word.wordId !== action.payload);
+      state.words = [];
     },
   },
 });

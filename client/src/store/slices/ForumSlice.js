@@ -4,7 +4,8 @@ export const forumSlice = createSlice({
   name: 'forum',
 
   initialState: {
-    posts: []
+    posts: [],
+    chosenThread: {}
   },
 
   // reducers + actions
@@ -13,9 +14,12 @@ export const forumSlice = createSlice({
     // if you call login, the reducer hits the login case
     setForumPosts: (state, action) => {
       state.posts = action.payload;
+    },
+    chooseThread: (state, action) => {
+      state.chosenThread = action.payload;
     }
   },
 });
 
-export const { setForumPosts } = forumSlice.actions;
+export const { setForumPosts, chooseThread } = forumSlice.actions;
 export default forumSlice.reducer;
