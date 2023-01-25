@@ -1,7 +1,30 @@
 .single-word-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin-top: 4em;
+}
+
+.single-word-button {
+  text-align: right;
+}
+
+.sw-button {
+  margin: 5px;
+}
+
+.sw-tag {
+  margin: 4px;
+}
+
+.sw-body {
+  margin-top: 3em;
+}
+
+.sw-star {
+  margin-left: 1em;
+}
+
+.sw-video {
+  margin-top: 3em;
 }

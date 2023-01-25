@@ -25,10 +25,11 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.auth.user);
+  console.log('from navbar', user);
   const authToken = useSelector((state) => state.auth.authToken);
 
   const handleLogOut = () => {
-    dispatch(logout()); //clear authentication token from the store
+    dispatch(logout());
     navigate('/');
   };
 
@@ -42,47 +43,42 @@ const Navbar = () => {
         >
           ATLiens
         </MenuItem>
-        <MenuItem
-          icon={<Home />}
-          component={
-            <NavLink
-              to="/"
-              // className={({ isActive }) =>
-              //   isActive ? 'nav-link active' : 'nav-link'
-              // }
-            />
-          }
-        >
+
+        <MenuItem icon={<Home />} component={<NavLink to="/" />}>
           Home
         </MenuItem>
-        <MenuItem icon={<LogIn />} component={<NavLink to="/login" />}>
-          Log In
-        </MenuItem>
-        <MenuItem icon={<UserPlus />} component={<NavLink to="/signup" />}>
-          Sign Up
-        </MenuItem>
-        <MenuItem icon={<Save />}> Saved</MenuItem>
+
+        {/* if there is no user, show  */}
+        {Object.keys(user).length === 0 ? (
+          <>
+            <MenuItem icon={<LogIn />} component={<NavLink to="/login" />}>
+              Log In
+            </MenuItem>
+            <MenuItem icon={<UserPlus />} component={<NavLink to="/signup" />}>
+              Sign Up
+            </MenuItem>
+          </>
+        ) : null}
+
+        {/* everyone can see */}
         <MenuItem icon={<Columns />} component={<NavLink to="/forum" />}>
           Slang Forum
         </MenuItem>
 
-        <MenuItem icon={<LogOut />} onClick={handleLogOut}>
-          Log Out
-        </MenuItem>
-
-        <MenuItem
-          icon={<PlusCircle />}
-          component={
-            <NavLink
-              to="/add"
-              className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
-              }
-            />
-          }
-        >
-          Add
-        </MenuItem>
+        {/* if there is user, show  */}
+        {Object.keys(user).length !== 0 ? (
+          <>
+            <MenuItem icon={<Save />} component={<NavLink to="/saved" />}>
+              Saved
+            </MenuItem>
+            <MenuItem icon={<PlusCircle />} component={<NavLink to="/add" />}>
+              Add
+            </MenuItem>
+            <MenuItem icon={<LogOut />} onClick={handleLogOut}>
+              Log Out
+            </MenuItem>
+          </>
+        ) : null}
       </Menu>
     </div>
   );
