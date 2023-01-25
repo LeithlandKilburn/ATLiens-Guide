@@ -7,6 +7,8 @@ import '../css/Navbar.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logout } from '../store/slices/AuthSlice';
+import { setFormType } from '../store/slices/EditWordSlice';
+import { setFormLogInType } from '../store/slices/AuthSlice';
 
 import {
   Home,
@@ -33,6 +35,18 @@ const Navbar = () => {
     navigate('/');
   };
 
+  const handleAddWord = () => {
+    dispatch(setFormType('add'));
+  };
+
+  const handleLogInForm = () => {
+    dispatch(setFormLogInType('log in'));
+  };
+
+  const handleSignUpForm = () => {
+    dispatch(setFormLogInType('sign up'));
+  };
+
   return (
     <div className="nav-cont">
       <Menu>
@@ -51,10 +65,18 @@ const Navbar = () => {
         {/* if there is no user, show  */}
         {Object.keys(user).length === 0 ? (
           <>
-            <MenuItem icon={<LogIn />} component={<NavLink to="/login" />}>
+            <MenuItem
+              icon={<LogIn />}
+              onClick={handleLogInForm}
+              component={<NavLink to="/login" />}
+            >
               Log In
             </MenuItem>
-            <MenuItem icon={<UserPlus />} component={<NavLink to="/signup" />}>
+            <MenuItem
+              icon={<UserPlus />}
+              onClick={handleSignUpForm}
+              component={<NavLink to="/signup" />}
+            >
               Sign Up
             </MenuItem>
           </>
@@ -71,7 +93,11 @@ const Navbar = () => {
             <MenuItem icon={<Save />} component={<NavLink to="/saved" />}>
               Saved
             </MenuItem>
-            <MenuItem icon={<PlusCircle />} component={<NavLink to="/add" />}>
+            <MenuItem
+              icon={<PlusCircle />}
+              onClick={handleAddWord}
+              component={<NavLink to="/add" />}
+            >
               Add
             </MenuItem>
             <MenuItem icon={<LogOut />} onClick={handleLogOut}>

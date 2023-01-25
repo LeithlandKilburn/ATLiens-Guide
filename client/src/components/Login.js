@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { setFormType } from '../store/slices/AuthSlice';
 import { login } from '../store/slices/AuthSlice.js';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import '../css/Login.css';
 
 // add messaging
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   //Components state.
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -15,9 +20,7 @@ function Login() {
   //Redux's state.
   const user = useSelector((state) => state.auth.user);
   const authToken = useSelector((state) => state.auth.authToken);
-  const dispatch = useDispatch();
-
-  const navigate = useNavigate();
+  const formLogInType = useSelector((state) => state.auth.formLogInType);
 
   const handleChange = (e) => {
     if (e.target.name === 'username') {
@@ -73,37 +76,14 @@ function Login() {
       });
   };
 
-  const addWord = (word) => {
-    fetch('http://localhost:8080/atliens/word', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${authToken}`,
-      },
-      body: JSON.stringify({ name: word }),
-    })
-      .then((resp) => {
-        if (resp.status === 201) {
-          console.log('success');
-          console.log(resp);
-          return resp.json();
-          // navigate('/');
-        } else {
-          console.log('Failure');
-        }
-      })
-      .then((data) => {
-        console.log(data);
-        dispatch(login(data));
-      });
-  };
-
   return (
-    <div>
-      <h1 className="center">Log In</h1>
+    <div className="log-in-container">
+      <h1 className="log-in-header">
+        {formLogInType === 'log in' ? 'Log In' : 'Sign Up'}
+      </h1>
       {console.log(user + '\n' + authToken)}
 
-      <Form onSubmit={(e) => handleLogin(e)}>
+      <Form onSubmit={(e) => handleLogin(e)} style={{ paddingBottom: '2em' }}>
         <Form.Label htmlFor="username">Username</Form.Label>
         <Form.Control
           type="text"
@@ -114,7 +94,9 @@ function Login() {
           onChange={(e) => handleChange(e)}
         />
 
-        <Form.Label htmlFor="password">Password</Form.Label>
+        <Form.Label htmlFor="password" style={{ paddingTop: '2em' }}>
+          Password
+        </Form.Label>
         <Form.Control
           type="password"
           id="password"
@@ -125,22 +107,21 @@ function Login() {
         />
       </Form>
 
-      <div>
-        <Button type="submit" onClick={(e) => handleLogin(e)}>
-          Login
-        </Button>
-      </div>
+      {formLogInType === 'log in' ? (
+        <div>
+          <Button type="submit" onClick={(e) => handleLogin(e)}>
+            Login
+          </Button>
+        </div>
+      ) : null}
 
-      <div>
-        <Button className="container" onClick={(e) => handleCreate(e)}>
-          Create Account
-        </Button>
-      </div>
-      <div>
-        <Button className="container" onClick={(e) => addWord('Wah gwan2')}>
-          Add Word
-        </Button>
-      </div>
+      {formLogInType === 'sign up' ? (
+        <div>
+          <Button className="submit" onClick={(e) => handleCreate(e)}>
+            Create Account
+          </Button>
+        </div>
+      ) : null}
     </div>
   );
 }

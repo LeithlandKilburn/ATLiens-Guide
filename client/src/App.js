@@ -13,6 +13,7 @@ import { Sidebar } from 'react-pro-sidebar';
 import Navbar from './components/Navbar.js';
 import SingleWordCard from './components/SingleWordCard.js';
 import SavedWords from './components/SavedWords.js';
+import AddWordFrom from './components/AddWordForm.js';
 
 //TODO: change to word name path for search
 
@@ -32,7 +33,7 @@ function App() {
           <Route path="/search" element={<SearchResultPage />} />
           <Route path="/edit/:wordId" element={<EditWordForm />} />
           <Route path="/forum" element={<SlangForum />} />
-          <Route path="/add" element={<EditWordForm />} />
+          <Route path="/add" element={<AddWordFrom />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/error" element={<Error />} />
           <Route path="/view/:wordId" element={<SingleWordCard />} />

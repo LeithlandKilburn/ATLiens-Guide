@@ -37,10 +37,7 @@ const SearchBar = () => {
               dispatch(wordData(data));
             }
           });
-
-        // .then(() => {
-        //   navigate('/search');
-        // });
+        setSearchValue('');
       } catch (err) {
         console.error(err);
       }
@@ -55,6 +52,7 @@ const SearchBar = () => {
             <Search />
           </InputGroup.Text>
           <Form.Control
+            value={searchValue}
             onSubmit={(e) => handleSearch(e)} // TODO
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
