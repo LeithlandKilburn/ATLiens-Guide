@@ -29,7 +29,6 @@ public class ForumPostRepo {
         // DynamoDbScanExpression is like a filter. If empty, it returns everything on table
         System.out.println("Hit repo");
         List<ForumPost> post = dynamoDBMapper.scan(ForumPost.class, new DynamoDBScanExpression());
-        System.out.println(post.get(0));
         return post;
     }
 
