@@ -48,6 +48,10 @@ const Navbar = () => {
           Home
         </MenuItem>
 
+        <MenuItem icon={<Columns />} component={<NavLink to="/forum" />}>
+          Slang Forum
+        </MenuItem>
+
         {/* if there is no user, show  */}
         {Object.keys(user).length === 0 ? (
           <>
@@ -59,11 +63,6 @@ const Navbar = () => {
             </MenuItem>
           </>
         ) : null}
-
-        {/* everyone can see */}
-        <MenuItem icon={<Columns />} component={<NavLink to="/forum" />}>
-          Slang Forum
-        </MenuItem>
 
         {/* if there is user, show  */}
         {Object.keys(user).length !== 0 ? (

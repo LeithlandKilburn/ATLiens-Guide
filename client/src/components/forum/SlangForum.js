@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setForumPosts } from '../../store/slices/ForumSlice';
 import ForumPost from './ForumPost.js';
@@ -6,6 +7,7 @@ import '../../css/forum/SlangForum.css';
 
 export default function SlangForum() {
 
+    const navigate = useNavigate();
     const posts = useSelector(state => state.forum.posts);
     const dispatch = useDispatch();
 
@@ -36,6 +38,10 @@ export default function SlangForum() {
         })
     },[])
 
+    const addWord = () => {
+        navigate("/forum-post")
+    }
+
     let forumPosts = posts.map(post => <ForumPost post={post}/>)
 
     return (
@@ -43,7 +49,7 @@ export default function SlangForum() {
             {console.log(posts)}
             <div className="forum-header">
                 <h1>Slang Forum</h1>
-                <div>Post Word</div>
+                <div onClick={addWord}>Post Word</div>
             </div>
 
             <div className="forum-post-container">

@@ -3,6 +3,7 @@ import HomePage from './components/Home.js';
 import SearchResultPage from './components/SearchResultPage.js';
 import EditWordForm from './components/EditWordForm.js';
 import SlangForum from './components/forum/SlangForum.js';
+import ForumThread from './components/forum/ForumThread.js';
 import Confirmation from './components/Confirmation.js';
 import Error from './components/Error.js';
 import NotFound from './components/NotFound.js';
@@ -13,6 +14,7 @@ import { Sidebar } from 'react-pro-sidebar';
 import Navbar from './components/Navbar.js';
 import SingleWordCard from './components/SingleWordCard.js';
 import SavedWords from './components/SavedWords.js';
+import AddPost from './components/forum/AddPost.js';
 
 //TODO: change to word name path for search
 
@@ -32,6 +34,8 @@ function App() {
           <Route path="/search" element={<SearchResultPage />} />
           <Route path="/edit/:wordId" element={<EditWordForm />} />
           <Route path="/forum" element={<SlangForum />} />
+          <Route path="/forum-thread" element={<ForumThread />} />
+          <Route path="/forum-post" element={<AddPost />} />
           <Route path="/add" element={<EditWordForm />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/error" element={<Error />} />
