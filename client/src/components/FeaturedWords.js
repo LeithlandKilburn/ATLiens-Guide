@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import WordCard from './WordCard';
+import WordCard from './WordCard.js';
 import { useSelector } from 'react-redux';
 import { wordData } from '../store/slices/WordSlice';
 import '../css/FeaturedWords.css';
