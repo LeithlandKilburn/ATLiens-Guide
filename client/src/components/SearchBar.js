@@ -35,7 +35,6 @@ const SearchBar = () => {
               setErrorMessage('');
               // setting the global state
               dispatch(wordData(data));
-              navigate('/search');
             }
           });
 

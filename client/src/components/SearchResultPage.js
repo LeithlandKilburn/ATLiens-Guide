@@ -1,18 +1,15 @@
 import React from 'react';
 import '../css/SearchResultPage.css';
-import { useSelector } from 'react-redux';
 import WordCard from './WordCard';
 
-const SearchResultPage = () => {
+const SearchResultPage = ({ words }) => {
   //Redux's state.
-  const words = useSelector((state) => state.word.words);
-  console.log(words);
+
+  let wordDisplay = words.length > 1 ? words.map(word => <WordCard word={word}/>) : <WordCard word={words}/>;
 
   return (
     <div className="card-container">
-      {words.map((word, index) => {
-        return <WordCard word={word} />;
-      })}
+      {wordDisplay}
     </div>
   );
 };
