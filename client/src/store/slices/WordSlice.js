@@ -20,9 +20,10 @@ export const wordSlice = createSlice({
       state.words = [action.payload];
     },
     deleteWord: (state, action) => {
-      state.words = state.words.filter(
-        (word) => word.wordId !== action.payload
-      );
+      state.words = [];
+      // state.words = state.words.filter(
+      //   (word) => word.wordId !== action.payload
+      // );
     },
     favWords: (state, action) => {
       state.favWords = [action.payload];

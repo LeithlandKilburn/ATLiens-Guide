@@ -24,3 +24,13 @@
 .search-filter:hover {
     cursor: pointer;
 }
+
+.cat-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2vw;
+    background-color: rgb(219, 192, 156);
+    padding: 10px;
+    border: 3px solid rgb(30, 25, 10);
+    border-radius: 5px;
+}

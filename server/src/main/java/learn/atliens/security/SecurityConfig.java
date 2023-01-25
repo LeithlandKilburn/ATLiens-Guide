@@ -59,7 +59,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET,
                         "/atliens/forum").permitAll()
                 .antMatchers(HttpMethod.POST,
-                        "/atliens/forum").permitAll()
+                        "/atliens/forum").hasAnyAuthority("ADMIN")
                 .antMatchers(HttpMethod.DELETE,
                         "/atliens/forum").hasAnyAuthority("ADMIN")
                 // if we get to this point, let's deny all requests
