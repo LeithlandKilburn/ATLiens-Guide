@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { wordData } from '../store/slices/WordSlice';
 import '../css/FeaturedWords.css';
 
-const FeaturedWords = ({ wordData }) => {
+const FeaturedWords = () => {
 
   const [featuredWords, setFeaturedWords] = useState([]);
 

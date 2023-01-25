@@ -44,7 +44,7 @@ public class ForumPostService {
     public Result<ForumPost> deletePostById(String postId) {
         Result<ForumPost> result = new Result<>();
         String deletedPost = repo.deletePostById(postId);
-        if (!deletedPost.equalsIgnoreCase("Word Deleted!")) {
+        if (!deletedPost.equalsIgnoreCase("Post Deleted!")) {
             result.addMessage(ActionStatus.NOT_FOUND, "Word Id not found.");
         }
         return result;

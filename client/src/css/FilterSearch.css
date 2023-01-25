@@ -8,6 +8,7 @@
     flex-direction: row;
 }
 
+
 .search-filter {
 
     background-color: antiquewhite;
@@ -18,4 +19,8 @@
     padding: 10px;
     margin: auto;
     text-align: center;
+}
+
+.search-filter:hover {
+    cursor: pointer;
 }
