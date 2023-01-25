@@ -1,5 +1,5 @@
 .card-body {
-  text-align: center;
+  text-align: left;
 }
 
 .single-card {
@@ -14,4 +14,8 @@
   /* text-align: right; */
   display: flex;
   justify-content: end;
+}
+
+.single-button {
+  margin-left: 0.5em;
 }

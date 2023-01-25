@@ -9,10 +9,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -50,19 +54,30 @@ public class AuthController {
             Authentication authentication = authenticationManager.authenticate(authToken);
             if (authentication.isAuthenticated()) {
                 HashMap<String, String> map = new HashMap<>();
-                String jwtToken = converter.getTokenFromUser((User)authentication.getPrincipal());
-                System.out.println((User)authentication.getPrincipal());
-                User user = (User)authentication.getPrincipal();
+                String jwtToken = converter.getTokenFromUser((User) authentication.getPrincipal());
+                System.out.println((User) authentication.getPrincipal());
+                User user = (User) authentication.getPrincipal();
 
                 map.put("jwt_token", jwtToken);
                 map.put("user", String.valueOf(user));
+
+                // to get the authorities to come back as a string
+                List<SimpleGrantedAuthority> authorities = user.getAuthorities();
+                List<String> authorityList = new ArrayList<>();
+
+                for (SimpleGrantedAuthority authority : authorities) {
+                    authorityList.add(authority.getAuthority());
+                }
+
+                String authoritiesString = String.join(",", authorityList);
+                map.put("authorities", authoritiesString);
 
                 return new ResponseEntity<>(map, HttpStatus.OK);
             }
         } catch (AuthenticationException ex) {
             ex.printStackTrace();
         }
-        return new ResponseEntity<>( HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     @PostMapping("/refresh_token")

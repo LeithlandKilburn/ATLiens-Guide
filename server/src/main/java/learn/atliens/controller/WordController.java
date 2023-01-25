@@ -58,9 +58,14 @@ public class WordController {
     // WORKS
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateWordById(@PathVariable("id") String wordId, @RequestBody Word word) {
-//        if (word != null && word.getWordId() != wordId) {
-//            return new ResponseEntity<>(HttpStatus.CONFLICT);
-//        }
+        System.out.println(wordId);
+        System.out.println(word.getWordId());
+        if (!word.getWordId().equalsIgnoreCase(wordId)) {
+            System.out.println("error?");
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        // TODO: why did that work?
+
         Result<Word> result = wordService.updateWord(wordId, word);
         return new ResponseEntity<>(getStatus(result, HttpStatus.NO_CONTENT));
     }

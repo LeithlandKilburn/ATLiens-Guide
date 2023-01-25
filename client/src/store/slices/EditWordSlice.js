@@ -5,6 +5,7 @@ export const authSlice = createSlice({
 
   initialState: {
     word: {},
+    formType: 'add',
   },
 
   reducers: {
@@ -12,8 +13,12 @@ export const authSlice = createSlice({
       console.log(action.payload);
       state.word = action.payload;
     },
+    setFormType: (state, action) => {
+      console.log(action.payload);
+      state.formType = action.payload;
+    },
   },
 });
 
-export const { editWordData } = authSlice.actions;
+export const { editWordData, setFormType } = authSlice.actions;
 export default authSlice.reducer;

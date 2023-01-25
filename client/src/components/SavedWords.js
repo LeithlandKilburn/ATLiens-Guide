@@ -1,16 +1,31 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { favWords } from '../store/slices/WordSlice';
+
 import WordCard from './WordCard';
 
 const SavedWords = () => {
+  const dispatch = useDispatch();
+
   //Redux's state.
-  const words = useSelector((state) => state.word.words);
-  console.log(words);
+  const favoriteWords = useSelector((state) => state.word.favWords);
+  console.log(favoriteWords);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/atliens/word/')
+      .then((response) => response.json())
+      // .then((data) => console.log(data));
+      .then((data) => dispatch(favWords(data)));
+  }, []); // this will happen only once when the component is loaded
 
   return (
     <div className="card-container">
-      {words.map((word, index) => {
-        return <WordCard word={word} />;
+      {console.log(favoriteWords[0].length)}
+
+      {favoriteWords[0].map((word, index) => {
+        console.log(word);
+        return <WordCard key={index} word={word} />;
       })}
     </div>
   );
