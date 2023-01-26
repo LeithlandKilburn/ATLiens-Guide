@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { favWords } from '../store/slices/WordSlice';
+import '../css/SavedWords.css';
 
 import WordCard from './WordCard';
 
@@ -21,9 +22,7 @@ const SavedWords = () => {
 
   return (
     <div className="card-container">
-      {console.log(favoriteWords[0].length)}
-
-      {favoriteWords[0].map((word, index) => {
+      {favoriteWords[0]?.map((word, index) => {
         console.log(word);
         return <WordCard key={index} word={word} />;
       })}

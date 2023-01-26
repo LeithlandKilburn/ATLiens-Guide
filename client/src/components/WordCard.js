@@ -17,7 +17,7 @@ const WordCard = ({ word }) => {
   const authToken = useSelector((state) => state.auth.authToken);
   const authorities = useSelector((state) => state.auth.authorities);
 
-  console.log(user);
+  // console.log(user);
 
   const handleDelete = (wordId) => {
     fetch(`http://localhost:8080/atliens/word/${wordId}`, {

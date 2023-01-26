@@ -2,7 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4em;
+  margin-top: 4.5em;
+  color: white;
+}
+
+.single-word {
+  background-color: rgba(26, 25, 25, 0.9);
+  border-radius: 8%;
+}
+
+.single-card-body {
+  margin: 2em;
+  font-size: 20px;
 }
 
 .single-word-button {
@@ -15,10 +26,6 @@
 
 .sw-tag {
   margin: 4px;
-}
-
-.sw-body {
-  margin-top: 3em;
 }
 
 .sw-star {

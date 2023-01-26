@@ -3,20 +3,27 @@ import { useSelector } from 'react-redux';
 import SearchBar from './SearchBar';
 import FeaturedWords from './FeaturedWords';
 import FilterSearch from './FilterSearch';
-import SearchResultPage from './SearchResultPage.js'
+import SearchResultPage from './SearchResultPage.js';
+import '../css/Home.css';
 
 function Home() {
-
   const words = useSelector((state) => state.word.words);
-  console.log(words);
 
-
-  let wordDisplay = words.length > 0 ? <SearchResultPage words={words[0]}/> : <FeaturedWords />
+  let wordDisplay =
+    words.length > 0 ? (
+      <SearchResultPage words={words[0]} />
+    ) : (
+      <FeaturedWords />
+    );
 
   return (
     <div>
+      <h1 className="home-header">
+        <span className="home-header-span">ATL</span>iens
+      </h1>
+      <p className="home-sub-text">The Official ATL Slang Finder</p>
       <SearchBar />
-      <FilterSearch/>
+      <FilterSearch />
       {wordDisplay}
     </div>
   );

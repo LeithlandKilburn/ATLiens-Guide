@@ -7,8 +7,15 @@
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  width: 250px;
+  background-color: rgba(26, 25, 25, 0.9);
+  border-radius: 8%;
+  /* width: 400px; */
 }
+
+/* .card-body {
+  background-color: rgba(26, 25, 25, 0.9);
+  border-radius: 8%;
+} */
 
 .card-buttons {
   /* text-align: right; */

@@ -27,7 +27,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.auth.user);
-  console.log('from navbar', user);
+  // console.log('from navbar', user);
   const authToken = useSelector((state) => state.auth.authToken);
 
   const handleLogOut = () => {
