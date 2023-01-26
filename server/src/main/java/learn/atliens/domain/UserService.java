@@ -36,7 +36,7 @@ public class UserService implements UserDetailsService {
 
         user.setPassword(passwordEncoder.encode(user.getPassword())); //Create password hash.
         try {
-            user.setAuthorities(List.of(new SimpleGrantedAuthority("ADMIN")));
+            user.setAuthorities(List.of(new SimpleGrantedAuthority("USER")));
             User newUser = repo.add(user);
             result.setPayload(newUser);
         } catch (DuplicateKeyException e) {
