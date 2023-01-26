@@ -1,5 +1,53 @@
+@font-face {
+  font-family: 'Auratype';
+  src: url('../assets/font/Auratype.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AuratypeExtrude';
+  src: url('../assets/font/AuratypeExtrude.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.home-header {
+  position: relative;
+  font-family: 'Auratype', sans-serif;
+  color: rgb(255, 200, 0);
+  letter-spacing: 2px;
+  font-size: 15rem;
+  text-align: center;
+  z-index: 1;
+  text-shadow: 2px 2px 2px rgb(69, 69, 69);
+  /* text-shadow: 2px 2px 2px rgb(0, 0, 0), 4px 4px 0px #ccc; */
+  /* padding: 10px; */
+}
+
+/* .home-header-span {
+  font-size: 15rem;
+} */
+
+.home-header::before {
+  content: 'ATLiens';
+  position: absolute;
+  font-family: 'AuratypeExtrude', sans-serif;
+  color: rgb(152, 55, 55);
+  letter-spacing: 2px;
+  font-size: 15rem;
+  text-align: center;
+  z-index: -1;
+}
+
+.home-sub-text {
+  font-family: 'Oswald', sans-serif;
+  color: rgb(255, 200, 0);
+  letter-spacing: 2px;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .home-cont {
-    display: grid;
-    grid-template-columns: 85vw;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: 85vw;
+  justify-items: center;
 }

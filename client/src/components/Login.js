@@ -79,7 +79,7 @@ function Login() {
   return (
     <div className="log-in-container">
       <h1 className="log-in-header">
-        {formLogInType === 'log in' ? 'Log In' : 'Sign Up'}
+        {formLogInType === 'log in' ? 'LOG IN' : 'SIGN UP'}
       </h1>
       {console.log(user + '\n' + authToken)}
 
@@ -109,7 +109,11 @@ function Login() {
 
       {formLogInType === 'log in' ? (
         <div>
-          <Button type="submit" onClick={(e) => handleLogin(e)}>
+          <Button
+            variant="secondary"
+            type="submit"
+            onClick={(e) => handleLogin(e)}
+          >
             Login
           </Button>
         </div>
@@ -117,7 +121,11 @@ function Login() {
 
       {formLogInType === 'sign up' ? (
         <div>
-          <Button className="submit" onClick={(e) => handleCreate(e)}>
+          <Button
+            variant="secondary"
+            className="submit"
+            onClick={(e) => handleCreate(e)}
+          >
             Create Account
           </Button>
         </div>

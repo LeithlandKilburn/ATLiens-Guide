@@ -1,6 +1,15 @@
+.form-container {
+  color: white;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
 .form-header {
   margin-top: 1em;
   padding-left: 2em;
+  color: white;
 }
 
 .form-container {

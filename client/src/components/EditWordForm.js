@@ -101,12 +101,12 @@ const EditWordForm = () => {
   // };
 
   return (
-    <>
+    <div className="form-container">
       <h2 className="form-header">
         {formType === 'add' ? 'Add a word' : 'Edit a word'}
       </h2>
       <Form className="form-container">
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Word</Form.Label>
           <Form.Control
             type="text"
@@ -117,7 +117,7 @@ const EditWordForm = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Definition</Form.Label>
           <Form.Control
             type="text"
@@ -128,7 +128,7 @@ const EditWordForm = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Example</Form.Label>
           <Form.Control
             type="text"
@@ -142,7 +142,7 @@ const EditWordForm = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Use Rating</Form.Label>
           <Form.Control
             type="number"
@@ -156,31 +156,18 @@ const EditWordForm = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Label>Categories</Form.Label>
-        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Category 1" />
+        <Form.Group className="mb-3">
+          <Form.Label>Categories</Form.Label>
+          <Form.Control
+            type="text"
+            name="categories"
+            defaultValue={singleWord?.categories}
+            placeholder="Categories"
+            onChange={handleChange}
+          />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Category 2" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Category 3" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Category 4" />
-        </Form.Group> */}
-        <Form.Control
-          type="text"
-          name="categories"
-          defaultValue={singleWord?.categories}
-          placeholder="Categories"
-          onChange={handleChange}
-        />
-
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Video URL</Form.Label>
           <Form.Control
             type="text"
@@ -206,7 +193,7 @@ const EditWordForm = () => {
           </Button>
         ) : null} */}
       </Form>
-    </>
+    </div>
   );
 };
 
