@@ -7,7 +7,6 @@ import '../css/WordCard.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteWord } from '../store/slices/WordSlice';
 import { editWordData, setFormType } from '../store/slices/EditWordSlice';
-import Alert from 'react-bootstrap/Alert';
 
 const WordCard = ({ word }) => {
   const navigate = useNavigate();
@@ -16,8 +15,6 @@ const WordCard = ({ word }) => {
   const user = useSelector((state) => state.auth.user);
   const authToken = useSelector((state) => state.auth.authToken);
   const authorities = useSelector((state) => state.auth.authorities);
-
-  // console.log(user);
 
   const handleDelete = (wordId) => {
     fetch(`http://localhost:8080/atliens/word/${wordId}`, {
@@ -56,7 +53,7 @@ const WordCard = ({ word }) => {
     <div className="single-card">
       <Card className="single-body">
         {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-        <Card.Body>
+        <Card.Body className="card-body-container">
           {authorities === 'ADMIN' ? (
             <div className="card-buttons">
               <Edit
@@ -92,14 +89,17 @@ const WordCard = ({ word }) => {
               <span style={{ fontWeight: 'bold' }}>Definition:</span>{' '}
               {word?.definition}
             </Card.Text>
-            <Card.Text>
+            <Card.Text className="card-star-container">
               <span style={{ fontWeight: 'bold' }}>Use Rating:</span>
-              {[...Array(word?.useRating)].map((_, i) => (
-                <Star className="sw-star" size={20} />
-              ))}
+              <div className="star-cont">
+                {[...Array(word?.useRating)].map((_, i) => (
+                  <Star size={20} />
+                ))}
+              </div>
             </Card.Text>
           </div>
-          <Button variant="primary" onClick={handleViewMore}>
+
+          <Button variant="dark" onClick={handleViewMore}>
             View More
           </Button>
         </Card.Body>

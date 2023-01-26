@@ -56,18 +56,29 @@ const SingleWordCard = () => {
               </div>
             </div>
 
-            <div className="sw-video">
-              <p>Check out this video that uses this word!</p>
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/Su6kidaGW_8"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
+            {singleWord?.videoUrl ? (
+              <div className="sw-video">
+                <p>Check out this video that uses this word!</p>
+                {/* <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/Su6kidaGW_8"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe> */}
+                <iframe
+                  width="560"
+                  height="315"
+                  src={singleWord?.videoUrl}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

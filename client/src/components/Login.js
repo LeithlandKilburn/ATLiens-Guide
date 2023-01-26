@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFormType } from '../store/slices/AuthSlice';
 import { login } from '../store/slices/AuthSlice.js';
+import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../css/Login.css';
+import { User, Lock } from 'react-feather';
 
 // add messaging
 
@@ -16,6 +18,7 @@ function Login() {
   //Components state.
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   //Redux's state.
   const user = useSelector((state) => state.auth.user);
@@ -66,6 +69,7 @@ function Login() {
           return resp.json();
         } else {
           console.log('Failure');
+          setError('Invalid username or password.');
         }
       })
       .then((data) => {
@@ -78,13 +82,23 @@ function Login() {
 
   return (
     <div className="log-in-container">
-      <h1 className="log-in-header">
-        {formLogInType === 'log in' ? 'LOG IN' : 'SIGN UP'}
-      </h1>
+      <div className="log-in-header">
+        <h1>{formLogInType === 'log in' ? 'Log In' : 'Sign Up'}</h1>
+      </div>
       {console.log(user + '\n' + authToken)}
 
+      {/* && is used to check if the expression on the left side of it is truthy, and if it is, it returns the expression on the right side of it. If the left side is falsy, it returns the left side. */}
+      <div className="log-in-error-container">
+        {error !== '' && <p className="log-in-error">{error}</p>}
+      </div>
+
       <Form onSubmit={(e) => handleLogin(e)} style={{ paddingBottom: '2em' }}>
-        <Form.Label htmlFor="username">Username</Form.Label>
+        {/* <Form.Label
+          htmlFor="username"
+          style={{ paddingTop: '1em', fontSize: '25px' }}
+        >
+          Username
+        </Form.Label>
         <Form.Control
           type="text"
           id="username"
@@ -92,9 +106,46 @@ function Login() {
           value={username}
           required=""
           onChange={(e) => handleChange(e)}
-        />
+        /> */}
 
-        <Form.Label htmlFor="password" style={{ paddingTop: '2em' }}>
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <User />
+          </InputGroup.Text>
+          <Form.Control
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+            type="text"
+            id="username"
+            name="username"
+            value={username}
+            placeholder="Enter Your Username"
+            required=""
+            onChange={(e) => handleChange(e)}
+          />
+        </InputGroup>
+
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <Lock />
+          </InputGroup.Text>
+          <Form.Control
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            placeholder="Enter Your Password"
+            required=""
+            onChange={(e) => handleChange(e)}
+          />
+        </InputGroup>
+
+        {/* <Form.Label
+          htmlFor="password"
+          style={{ paddingTop: '1em', fontSize: '25px' }}
+        >
           Password
         </Form.Label>
         <Form.Control
@@ -104,16 +155,12 @@ function Login() {
           value={password}
           required=""
           onChange={(e) => handleChange(e)}
-        />
+        /> */}
       </Form>
 
       {formLogInType === 'log in' ? (
         <div>
-          <Button
-            variant="secondary"
-            type="submit"
-            onClick={(e) => handleLogin(e)}
-          >
+          <Button variant="dark" type="submit" onClick={(e) => handleLogin(e)}>
             Login
           </Button>
         </div>
@@ -122,7 +169,7 @@ function Login() {
       {formLogInType === 'sign up' ? (
         <div>
           <Button
-            variant="secondary"
+            variant="dark"
             className="submit"
             onClick={(e) => handleCreate(e)}
           >

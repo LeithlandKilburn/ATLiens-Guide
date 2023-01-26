@@ -1,4 +1,18 @@
-.card-container {
+.saved-card-container-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.saved-card-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
+  overflow-x: hidden;
+  height: 90vh;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.saved-card-container::-webkit-scrollbar {
+  display: none;
 }
