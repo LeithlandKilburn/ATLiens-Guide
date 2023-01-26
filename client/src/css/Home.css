@@ -17,6 +17,7 @@
   letter-spacing: 2px;
   font-size: 15rem;
   text-align: center;
+  margin-top: -35px;
   z-index: 1;
   text-shadow: 2px 2px 2px rgb(69, 69, 69);
   /* text-shadow: 2px 2px 2px rgb(0, 0, 0), 4px 4px 0px #ccc; */
@@ -44,11 +45,15 @@
   letter-spacing: 2px;
   font-size: 2rem;
   text-align: center;
+
   background-color: rgb(152, 55, 55);
   border-radius: 10px;
   padding: 8px;
   margin-top: -15px;
   text-transform: uppercase;
+
+  margin-bottom: 30px;
+
 }
 
 .home-cont {
