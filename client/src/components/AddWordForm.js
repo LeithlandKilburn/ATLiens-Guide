@@ -2,12 +2,18 @@ import React from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { PlusSquare, AlignLeft, Hash, List, Link } from 'react-feather';
+import '../css/AddWordForm.css';
+
 import '../css/EditWordForm.css';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const AddWordFrom = () => {
   const navigate = useNavigate();
+
+  const [error, setError] = useState('');
 
   //Redux's state
   const user = useSelector((state) => state.auth.user);
@@ -37,6 +43,9 @@ const AddWordFrom = () => {
         if (response.status === 201) {
           console.log(response);
           navigate('/confirmation');
+        } else {
+          console.log('Failure');
+          setError('Invalid Inputs');
         }
       })
       .catch(() => {
@@ -45,96 +54,104 @@ const AddWordFrom = () => {
   };
 
   return (
-    <>
-      <h2 className="form-header">Add a new word</h2>
+    <div className="add-word-container">
+      <div className="add-word-header">
+        <h1>Add a new word</h1>
+      </div>
+
+      <div className="log-in-error-container">
+        {error !== '' && <p className="log-in-error">{error}</p>}
+      </div>
+
       <Form className="form-container">
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Word</Form.Label>
+        <InputGroup size="lg">
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <PlusSquare />
+          </InputGroup.Text>
           <Form.Control
             type="text"
             name="name"
             placeholder="Enter Word"
             onChange={handleChange}
           />
-        </Form.Group>
+        </InputGroup>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Definition</Form.Label>
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <AlignLeft />
+          </InputGroup.Text>
           <Form.Control
             type="text"
             name="definition"
             placeholder="Enter Definition"
             onChange={handleChange}
           />
-        </Form.Group>
+        </InputGroup>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Example</Form.Label>
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <AlignLeft />
+          </InputGroup.Text>
           <Form.Control
             type="text"
             name="example"
             placeholder="Enter Example"
             onChange={handleChange}
           />
-          <Form.Text className="text-muted">
-            Use the word in a sentence.
-          </Form.Text>
-        </Form.Group>
+        </InputGroup>
+        <Form.Text style={{ color: 'white', fontSize: '15px' }}>
+          Use the word in a sentence.
+        </Form.Text>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Use Rating</Form.Label>
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <Hash />
+          </InputGroup.Text>
           <Form.Control
             type="number"
             name="useRating"
             placeholder="Enter Use Rating"
             onChange={handleChange}
           />
-          <Form.Text className="text-muted">
-            How often is this word being used?
-          </Form.Text>
-        </Form.Group>
+        </InputGroup>
+        <Form.Text style={{ color: 'white', fontSize: '15px' }}>
+          How often is this word being used?
+        </Form.Text>
 
-        <Form.Label>Categories</Form.Label>
-        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Category 1" />
-        </Form.Group>
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <List />
+          </InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="categories"
+            placeholder="Categories"
+            onChange={handleChange}
+          />
+        </InputGroup>
 
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Category 2" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Category 3" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Category 4" />
-        </Form.Group> */}
-        <Form.Control
-          type="text"
-          name="categories"
-          placeholder="Categories"
-          onChange={handleChange}
-        />
-
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Video URL</Form.Label>
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <Link />
+          </InputGroup.Text>
           <Form.Control
             type="text"
             name="videoUrl"
             placeholder="Enter Video URL"
             onChange={handleChange}
           />
-          <Form.Text className="text-muted">
-            Share a video of this word being used. Please use the embed link.
-          </Form.Text>
-        </Form.Group>
+        </InputGroup>
+        <Form.Text style={{ color: 'white', fontSize: '15px' }}>
+          Share a video of this word being used. Please use the embed link.
+        </Form.Text>
 
-        <Button variant="primary" onClick={handleAdd}>
-          Add Word
-        </Button>
+        <div style={{ paddingTop: '1em' }}>
+          <Button variant="dark" onClick={handleAdd}>
+            Add Word
+          </Button>
+        </div>
       </Form>
-    </>
+    </div>
   );
 };
 

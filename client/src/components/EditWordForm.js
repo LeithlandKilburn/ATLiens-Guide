@@ -2,6 +2,9 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { PlusSquare, AlignLeft, Hash, List, Link } from 'react-feather';
+
 import '../css/EditWordForm.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -102,11 +105,14 @@ const EditWordForm = () => {
 
   return (
     <div className="form-container">
-      <h2 className="form-header">
-        {formType === 'add' ? 'Add a word' : 'Edit a word'}
-      </h2>
+      <div className="form-header">
+        <h1>
+          {/* {formType === 'add' ? 'Add a word' : 'Edit a word'} */}
+          Edit A Word
+        </h1>
+      </div>
       <Form className="form-container">
-        <Form.Group className="mb-3">
+        {/* <Form.Group className="mb-3">
           <Form.Label>Word</Form.Label>
           <Form.Control
             type="text"
@@ -115,8 +121,21 @@ const EditWordForm = () => {
             placeholder="Enter Word"
             onChange={handleChange}
           />
-        </Form.Group>
+        </Form.Group> */}
 
+        <InputGroup size="lg">
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <PlusSquare />
+          </InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="name"
+            defaultValue={singleWord?.name}
+            placeholder="Enter Word"
+            onChange={handleChange}
+          />
+        </InputGroup>
+        {/* 
         <Form.Group className="mb-3">
           <Form.Label>Definition</Form.Label>
           <Form.Control
@@ -126,9 +145,22 @@ const EditWordForm = () => {
             placeholder="Enter Definition"
             onChange={handleChange}
           />
-        </Form.Group>
+        </Form.Group> */}
 
-        <Form.Group className="mb-3">
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <AlignLeft />
+          </InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="definition"
+            defaultValue={singleWord?.definition}
+            placeholder="Enter Definition"
+            onChange={handleChange}
+          />
+        </InputGroup>
+
+        {/* <Form.Group className="mb-3">
           <Form.Label>Example</Form.Label>
           <Form.Control
             type="text"
@@ -140,9 +172,25 @@ const EditWordForm = () => {
           <Form.Text className="text-muted">
             Use the word in a sentence.
           </Form.Text>
-        </Form.Group>
+        </Form.Group> */}
 
-        <Form.Group className="mb-3">
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <AlignLeft />
+          </InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="example"
+            defaultValue={singleWord?.example}
+            placeholder="Enter Example"
+            onChange={handleChange}
+          />
+        </InputGroup>
+        <Form.Text style={{ color: 'white', fontSize: '15px' }}>
+          Use the word in a sentence.
+        </Form.Text>
+
+        {/* <Form.Group className="mb-3">
           <Form.Label>Use Rating</Form.Label>
           <Form.Control
             type="number"
@@ -154,9 +202,25 @@ const EditWordForm = () => {
           <Form.Text className="text-muted">
             How often is this word being used?
           </Form.Text>
-        </Form.Group>
+        </Form.Group> */}
 
-        <Form.Group className="mb-3">
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <Hash />
+          </InputGroup.Text>
+          <Form.Control
+            type="number"
+            name="useRating"
+            defaultValue={singleWord?.useRating}
+            placeholder="Enter Use Rating"
+            onChange={handleChange}
+          />
+        </InputGroup>
+        <Form.Text style={{ color: 'white', fontSize: '15px' }}>
+          How often is this word being used?
+        </Form.Text>
+
+        {/* <Form.Group className="mb-3">
           <Form.Label>Categories</Form.Label>
           <Form.Control
             type="text"
@@ -165,8 +229,21 @@ const EditWordForm = () => {
             placeholder="Categories"
             onChange={handleChange}
           />
-        </Form.Group>
+        </Form.Group> */}
 
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <List />
+          </InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="categories"
+            defaultValue={singleWord?.categories}
+            placeholder="Categories"
+            onChange={handleChange}
+          />
+        </InputGroup>
+        {/* 
         <Form.Group className="mb-3">
           <Form.Label>Video URL</Form.Label>
           <Form.Control
@@ -179,13 +256,35 @@ const EditWordForm = () => {
           <Form.Text className="text-muted">
             Share a video of this word being used. Please use the embed link.
           </Form.Text>
-        </Form.Group>
+        </Form.Group> */}
 
-        {formType === 'edit' ? (
+        <InputGroup size="lg" style={{ paddingTop: '2em' }}>
+          <InputGroup.Text id="inputGroup-sizing-lg">
+            <Link />
+          </InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="videoUrl"
+            defaultValue={singleWord?.videoUrl}
+            placeholder="Enter Video URL"
+            onChange={handleChange}
+          />
+        </InputGroup>
+        <Form.Text style={{ color: 'white', fontSize: '15px' }}>
+          Share a video of this word being used. Please use the embed link.
+        </Form.Text>
+
+        {/* {formType === 'edit' ? (
           <Button variant="primary" onClick={handleEdit}>
             Edit Word
           </Button>
-        ) : null}
+        ) : null} */}
+
+        <div style={{ paddingTop: '1em' }}>
+          <Button variant="dark" onClick={handleEdit}>
+            Edit Word
+          </Button>
+        </div>
 
         {/* {formType === 'add' ? (
           <Button variant="primary" onClick={handleAdd}>

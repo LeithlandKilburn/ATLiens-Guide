@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@font-face {
+  font-family: 'SilkFlower';
+  src: url('../assets/font/SilkFlower.otf') format('truetype');
+}
 
 .log-in-container {
   margin-top: 4%;
@@ -8,7 +11,35 @@
 }
 
 .log-in-header {
-  font-family: 'Oswald', sans-serif;
-  padding-bottom: 1em;
-  /* color: white; */
+  font-family: 'SilkFlower', sans-serif;
+  letter-spacing: 2px;
+  /* border-radius: 10px; */
+  /* background-color: black; */
+  padding: 20px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: rgb(0, 0, 0);
+}
+
+.log-in-header > h1 {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 20px 15px;
+}
+
+.log-in-error-container {
+  /* color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-in-error {
+  background-color: #e00c45;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
 }

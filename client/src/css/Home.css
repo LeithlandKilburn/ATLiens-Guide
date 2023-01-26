@@ -45,7 +45,15 @@
   letter-spacing: 2px;
   font-size: 2rem;
   text-align: center;
+
+  background-color: rgb(152, 55, 55);
+  border-radius: 10px;
+  padding: 8px;
+  margin-top: -15px;
+  text-transform: uppercase;
+
   margin-bottom: 30px;
+
 }
 
 .home-cont {

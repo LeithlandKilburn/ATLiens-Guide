@@ -1,21 +1,33 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
-import '../css/NotFound.css';
+import error from '../assets/svg/error.svg';
 
 const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="not-found-container">
-      <h3>404 Page Not Found</h3>
-      <Button
-        onClick={() => {
-          navigate('/');
-        }}
-      >
-        Home
-      </Button>
+    <div style={{ textAlign: 'center' }}>
+      <div>
+        <img
+          src={error}
+          alt="error robot"
+          style={{
+            height: '600px',
+          }}
+        />
+        <h2 style={{ color: 'white' }}>Uh oh! 404 Page Not Found.</h2>
+        <div style={{ padding: '2em' }}>
+          <Button
+            variant="dark"
+            onClick={() => {
+              navigate('/');
+            }}
+          >
+            Go Back Home
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
