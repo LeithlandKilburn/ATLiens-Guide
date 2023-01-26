@@ -1,9 +1,10 @@
 .featured-container {
+    background-color: #D3D3D3;
     width: 70%;
     margin: 40px 50px;
-    border: 12px solid rgb(143, 116, 80);
+    box-shadow: 0 0 10px black;
     border-radius: 10px;
-    padding: 10px 0 10px 10px;
+    padding: 10px 5px;
 }
 
 .scrolling-container 

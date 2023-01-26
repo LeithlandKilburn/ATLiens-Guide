@@ -2,6 +2,7 @@
   overflow-x: hidden;
   display: grid;
   grid-template-columns: 1fr 3fr;
+  background-color: #3d5363;
 }
 
 .navbar-container {

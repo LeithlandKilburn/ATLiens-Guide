@@ -1,8 +1,12 @@
 .search-bar-container {
   margin-top: 5%;
+  width: 100%;
+  margin-left: 19vw;
 }
 
 .search-cont {
   width: 70%;
   margin: 0 50px;
+  display: flex;
+  flex-direction: row;
 }

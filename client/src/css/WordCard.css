@@ -8,6 +8,13 @@
   margin-right: 20px;
   margin-top: 20px;
   width: 250px;
+  box-shadow: 0 0 5px rgb(61, 61, 61);
+  height: 30vh;
+  border-radius: 5px;
+}
+
+.single-body {
+  height: 100% !important;
 }
 
 .card-buttons {

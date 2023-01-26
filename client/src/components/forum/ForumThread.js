@@ -2,24 +2,19 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Badge from 'react-bootstrap/Badge';
 import { Heart, Share, MoreHorizontal, Star } from 'react-feather';
-import '../../css/SingleWordCard.css';
+import '../../css//forum/forum-thread.css';
 
 const ForumThread = () => {
   //Redux's state.
-  const singleWord = useSelector((state) => state.editWord.word);
   const chosenThread = useSelector((state) => state.forum.chosenThread);
   const authToken = useSelector((state) => state.auth.authToken);
 
   const categoriesArray = chosenThread.categories ? chosenThread.categories.split(',') : [];
 
   return (
-    <div className="single-word-container">
-        <h2>Thread</h2>
-        <div className="single-word-button">
-            <Heart style={{ cursor: 'pointer' }} className="sw-button" />
-            <Share style={{ cursor: 'pointer' }} className="sw-button" />
-            <MoreHorizontal style={{ cursor: 'pointer' }} className="sw-button" />
-        </div>
+    <div className="thread-cont">
+        <div className="thread-body">
+        <h2>New Slang: {chosenThread.name}</h2>
 
         {/* gif? */}
         {/* <div>
@@ -59,23 +54,22 @@ const ForumThread = () => {
             ))}
             </div>
         </div>
-
-        <div className="sw-video">
-            <p>Check out this video that uses this word!</p>
-            <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/Su6kidaGW_8"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            ></iframe>
+        <div className="forum-react-buttons">
+            <Heart style={{ cursor: 'pointer' }} className="sw-button" />
+            <Share style={{ cursor: 'pointer' }} className="sw-button" />
+            <MoreHorizontal style={{ cursor: 'pointer' }} className="sw-button" />
         </div>
+    </div>
 
-        <p className="post-comments">This one gotta be in here</p>
-        <p className="post-comments">How this not in here already</p>
-        <p className="post-comments">This one gotta be in here</p>
+    <div className="forum-com-box">
+        <p className="thread-comments">This one gotta be in here</p>
+        <p className="thread-comments">How this not in here already</p>
+        <p className="thread-comments">This one gotta be in here</p>
+        
+        <p className="thread-comments">This one gotta be in here</p>
+        <p className="thread-comments">How this not in here already</p>
+        <p className="thread-comments">This one gotta be in here</p>
+    </div>
     </div>
   );
 };

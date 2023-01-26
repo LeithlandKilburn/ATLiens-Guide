@@ -1,8 +1,25 @@
 .post-cont {
-    background-color: rgb(221, 226, 176);
+    background-color: #F5F3F4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "a a a" "b b b" "c c e";
+    align-items: center;
     padding: 10px;
-    width: 300px;
-    border: 6px solid rgb(24, 75, 24);
+    width: 16vw;
+    height: 22vw;
+    box-shadow: 0 4px 15px rgb(62, 62, 62);;
+    border-radius: 5px;
+    overflow-x: hidden;
+}
+
+.forum-card-prev {
+    grid-area: a;
+}
+
+.forum-comments {
+    grid-area: b;
+    width: 100%;
 }
 
 .post-comments {
@@ -10,4 +27,15 @@
     padding: 5px 5px 5px 10px;
     border: 2px solid rgb(91, 91, 49);
     border-radius: 5px;
+    margin: auto;
+}
+
+.post-comments:first-of-type {
+    margin-bottom: 5px;
+}
+
+.view-thread {
+    grid-area: c;
+    width: 100%;
+    margin: 1vw 0 auto;
 }
