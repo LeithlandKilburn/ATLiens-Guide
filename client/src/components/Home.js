@@ -9,11 +9,15 @@ import '../css/Home.css';
 function Home() {
   const words = useSelector((state) => state.word.words);
 
-  let wordDisplay =
+  let homeDisplay =
     words.length > 0 ? (
       <SearchResultPage words={words[0]} />
     ) : (
-      <FeaturedWords />
+      <>
+        <SearchBar />
+        <FilterSearch />
+        <FeaturedWords />
+      </>
     );
 
   return (
@@ -22,9 +26,7 @@ function Home() {
         <span className="home-header-span">ATL</span>iens
       </h1>
       <p className="home-sub-text">The Official ATL Slang Finder</p>
-      <SearchBar />
-      <FilterSearch />
-      {wordDisplay}
+      {homeDisplay}
     </div>
   );
 }

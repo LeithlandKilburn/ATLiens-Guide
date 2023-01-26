@@ -28,7 +28,7 @@ const FeaturedWords = () => {
 
   return (
     <div className="featured-container">
-      <h1>Featured Words</h1>
+      <h1 className="feat-header">Featured Words</h1>
       <div className="scrolling-container">
         <div className="scrolling-wrapper">
           {featWords}{featWords}{featWords}{featWords}{featWords}

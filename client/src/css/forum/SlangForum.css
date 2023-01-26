@@ -6,7 +6,7 @@
 }
 
 .forum-header {
-  background-color: #d3d3d3;
+  background-color: antiquewhite;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,15 +23,16 @@
 }
 
 .forum-post-container {
-    background-color: #d3d3d32d;
+    background-color: rgba(250, 235, 215, 0.229);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-    column-gap: 4vw;
+    column-gap: 2vw;
     row-gap: 2vw;
+    margin: auto;
     margin-top: 15px;
     padding: 25px 20px 20px;
-    box-shadow: 0 0 10px rgb(5, 5, 5);
+    box-shadow: 0 0 10px black;
     border-radius: 5px;
     height: 80vh;
     width: 60vw;
