@@ -1,11 +1,13 @@
 .active {
   font-weight: bold !important;
-  color: #e00c45 !important;
+  color:rgb(240, 47, 47) !important;
 }
 .nav-cont {
   height: 100%;
+  background-color: rgba(255, 200, 0, 0.522);
 }
 
 .ps-sidebar-root {
   height: 100%;
+  border: none !important;
 }
