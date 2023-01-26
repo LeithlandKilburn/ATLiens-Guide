@@ -1,4 +1,16 @@
 .card-container {
+  background-color: #F5F3F4;
   display: grid;
   grid-template-columns: auto auto auto;
+  justify-items: center;
+  column-gap: 4vw;
+  row-gap: 2vw;
+  margin-top: 15px;
+  padding: 25px 20px 20px;
+  box-shadow: 0 0 10px rgb(5, 5, 5);
+  border-radius: 5px;
+  height: 70vh;
+  width: 60vw;
+  min-width: fit-content;
+  overflow-x: hidden;
 }

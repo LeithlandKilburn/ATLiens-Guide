@@ -17,7 +17,7 @@ function Home() {
     );
 
   return (
-    <div>
+    <div className="home-cont">
       <h1 className="home-header">
         <span className="home-header-span">ATL</span>iens
       </h1>

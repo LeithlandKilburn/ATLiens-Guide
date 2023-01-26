@@ -45,3 +45,9 @@
   font-size: 2rem;
   text-align: center;
 }
+
+.home-cont {
+  display: grid;
+  grid-template-columns: 85vw;
+  justify-items: center;
+}

@@ -45,15 +45,15 @@ export default function SlangForum() {
     let forumPosts = posts.map(post => <ForumPost post={post}/>)
 
     return (
-        <div>
+        <div className="forum-cont">
             {console.log(posts)}
             <div className="forum-header">
                 <h1>Slang Forum</h1>
-                <div onClick={addWord}>Post Word</div>
+                <div className="add-button" onClick={addWord}>Post Word</div>
             </div>
 
             <div className="forum-post-container">
-                {forumPosts}
+                {forumPosts} {forumPosts} {forumPosts} {forumPosts}
             </div>
         </div>
 

@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import { Edit, X, Edit2 } from 'react-feather';
 import { useSelector } from 'react-redux';
 import { deleteWord, wordData } from '../../store/slices/WordSlice';
+import '../../css/forum/ForumCard.css';
 
 export default function ForumCard ({ word }) {
     const navigate = useNavigate();
@@ -43,11 +44,11 @@ export default function ForumCard ({ word }) {
     };
   
     return (
-      <div className="single-card">
+      <div className="forum-card">
         <Card>
           {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
           <Card.Body>
-            <div className="card-body">
+            <div className="forum-card-body">
               <Card.Title>{word?.name}</Card.Title>
               <Card.Text>{word?.definition}</Card.Text>
               <Card.Text>{word?.useRating}</Card.Text>

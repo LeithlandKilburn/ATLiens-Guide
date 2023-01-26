@@ -17,10 +17,14 @@ export default function ForumPost({ post }) {
 
     return (
         <div className="post-cont">
-            <ForumCard word={post}/>
-            <p className="post-comments">This one gotta be in here</p>
-            <p className="post-comments">How this not in here already</p>
-            <Button variant="secondary" onClick={viewPost}>View Thread</Button>
+            <div className="forum-card-prev">
+                <ForumCard word={post}/>
+            </div>
+            <div className="forum-comments">
+                <p className="post-comments">This one gotta be in here</p>
+                <p className="post-comments">How this not in here already</p>
+            </div>
+            <Button className="view-thread" variant="secondary" onClick={viewPost}>View Thread</Button>
         </div>
     )
 }
