@@ -20,22 +20,23 @@
   padding: 5px 10px;
   border: 4px double #3d5363;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .forum-post-container {
-    background-color: rgba(250, 235, 215, 0.229);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    column-gap: 2vw;
-    row-gap: 2vw;
-    margin: auto;
-    margin-top: 15px;
-    padding: 25px 20px 20px;
-    box-shadow: 0 0 10px black;
-    border-radius: 5px;
-    height: 80vh;
-    width: 60vw;
-    min-width: fit-content;
-    overflow-x: hidden;
+  background-color: rgba(250, 235, 215, 0.229);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  column-gap: 2vw;
+  row-gap: 2vw;
+  margin: auto;
+  margin-top: 15px;
+  padding: 25px 20px 20px;
+  box-shadow: 0 0 10px black;
+  border-radius: 5px;
+  height: 80vh;
+  width: 60vw;
+  min-width: fit-content;
+  overflow-x: hidden;
 }

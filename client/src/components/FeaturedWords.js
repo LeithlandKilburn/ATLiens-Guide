@@ -8,7 +8,6 @@ import { wordData } from '../store/slices/WordSlice';
 import '../css/FeaturedWords.css';
 
 const FeaturedWords = () => {
-
   const [featuredWords, setFeaturedWords] = useState([]);
 
   useEffect(() => {
@@ -17,21 +16,27 @@ const FeaturedWords = () => {
         .then((response) => response.json())
         .then((data) => {
           setFeaturedWords(data);
-        })
+        });
     } catch (err) {
       console.error(err);
     }
-  }, [])
+  }, []);
 
-  let featWords = featuredWords.map((word) => <WordCard word={word}/>)
-
+  let featWords = featuredWords
+    .slice(12)
+    .map((word) => <WordCard word={word} />);
+  console.log(featuredWords.slice(12));
 
   return (
     <div className="featured-container">
       <h1 className="feat-header">Featured Words</h1>
       <div className="scrolling-container">
         <div className="scrolling-wrapper">
-          {featWords}{featWords}{featWords}{featWords}{featWords}
+          {featWords}
+          {/* {featWords}
+          {featWords}
+          {featWords}
+          {featWords} */}
         </div>
       </div>
     </div>
