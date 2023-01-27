@@ -63,9 +63,9 @@ public class UserService implements UserDetailsService {
         if (user.getPassword().isBlank()){
             result.addMessage("Must enter a username");
         }
-        if (user.getAuthorities() == null) {
-            result.addMessage("Must enter a username");
-        }
+//        if (user.getAuthorities() == null) {
+//            result.addMessage("Must enter a username");
+//        }
 
         List<User> existingUsers = repo.findAll();
 

@@ -21,10 +21,11 @@ const SavedWords = () => {
   }, []); // this will happen only once when the component is loaded
 
   return (
-    <div>
-      <div className="favorite-page-container">
+    <div className="saved-word-overall-container">
+      <div className="add-word-header">
         <h1>Favorite Words</h1>
       </div>
+
       <div className="saved-card-container-main">
         <div className="saved-card-container">
           {favoriteWords[0]?.map((word, index) => {
